@@ -33,6 +33,6 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- template: ci-templates/run-single-line.yml  # Template reference
+- template: ci-templates/run-single-line-script.yml  # Template reference
 
-- template: ci-templates/run-multi-line.yml  # Template reference
+- template: ci-templates/run-multi-line-script.yml  # Template reference
