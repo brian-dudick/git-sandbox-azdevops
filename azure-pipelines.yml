@@ -9,14 +9,6 @@ trigger:
       - features
       - features/*
       - hot-fix
-    exclude:
-        - features/experimental/*
-  paths:
-    include:
-    - docs/*
-    exclude:
-    - docs/README.md
-
 pr:
   branches:
     include:
