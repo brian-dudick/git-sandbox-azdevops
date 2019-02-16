@@ -9,17 +9,17 @@ trigger:
       - features
       - features/*
       - hot-fix
+    exclude:
+        - features/experimental/*
+    paths:
+        exclude:
+        - README.md
 
 pr:
   branches:
     include:
     - master
     - development
-    exclude:
-    - features/experimental/*
-  paths:
-    exclude:
-    - README.md
 
 pool:
   vmImage: 'Ubuntu-16.04'
