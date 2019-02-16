@@ -21,6 +21,8 @@ pr:
 pool:
   vmImage: 'Ubuntu-16.04'
 
+name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
