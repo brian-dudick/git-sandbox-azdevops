@@ -4,11 +4,16 @@
 # https://aka.ms/yaml
 
 trigger:
+  tags:
+    include:
+    - v2.*
   branches:
     include:
       - features
       - features/*
       - hot-fix
+    exclude:
+      - master
   paths:
     exclude:
     - README.md
