@@ -11,6 +11,7 @@ trigger:
     include:
       - Feature-*
       - Hotfix-*
+      - Release-*
     exclude:
       - master
   paths:
