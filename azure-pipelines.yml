@@ -11,9 +11,6 @@ trigger:
       - hot-fix
     exclude:
         - features/experimental/*
-    paths:
-        exclude:
-        - README.md
 
 pr:
   branches:
