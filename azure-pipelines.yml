@@ -12,6 +12,7 @@ trigger:
   paths:
     exclude:
     - README.md
+    - /docs/*
 pr:
   branches:
     include:
