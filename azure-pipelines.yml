@@ -22,7 +22,7 @@ pr:
     include:
     - master
     - Development
-    - Release
+    - Release-*
 
 pool:
   vmImage: 'Ubuntu-16.04'
