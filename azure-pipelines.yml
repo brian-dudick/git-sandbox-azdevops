@@ -4,14 +4,20 @@
 # https://aka.ms/yaml
 
 trigger:
+  tags:
+    include:
+    - v2.*
   branches:
     include:
       - features
       - features/*
       - hot-fix
+    exclude:
+      - master
   paths:
     exclude:
     - README.md
+    - /docs/*
 pr:
   branches:
     include:
@@ -31,3 +37,7 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- template: ci-templates/run-single-line-script.yml  # Template reference
+
+- template: ci-templates/run-multi-line-script.yml  # Template reference
