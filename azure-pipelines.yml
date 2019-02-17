@@ -9,9 +9,9 @@ trigger:
     - v2.*
   branches:
     include:
-      - Feature/-/*
-      - Hotfix/-/*
-      - Release/-/*
+      - Feature/*
+      - Hotfix/*
+      - Release/*
     exclude:
       - master
   paths:
