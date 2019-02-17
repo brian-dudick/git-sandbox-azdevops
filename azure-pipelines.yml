@@ -10,8 +10,8 @@ trigger:
   branches:
     include:
       - Feature-*
-      - Hotfix/*
-      - Release/*
+      - Hotfix-*
+      - Release-*
     exclude:
       - master
   paths:
@@ -23,7 +23,7 @@ pr:
     include:
     - master
     - Development
-    - Release/-/*
+    - Release-*
 
 pool:
   vmImage: 'Ubuntu-16.04'
