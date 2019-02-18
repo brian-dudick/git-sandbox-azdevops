@@ -6,10 +6,12 @@
 trigger:
   tags:
     include:
-    - v2.*
+    - Mobile-*
+    - Alpha-*
+    - Bravo-*
   branches:
     include:
-      - Feature-*
+      - Feature/*
       - Hotfix-*
       - Release-*
     exclude:
