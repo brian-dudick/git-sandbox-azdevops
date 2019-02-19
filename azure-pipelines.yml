@@ -57,6 +57,7 @@ steps:
 - template: build/azure-pipelines/copy-emailprocessor-zip.yml  # Template reference
 
 #6) Copy TaskProcessor
+- template: build/azure-pipelines/copy-taskprocessor-zip.yml  # Template reference
 
 #7) Publish Artifacts
 
