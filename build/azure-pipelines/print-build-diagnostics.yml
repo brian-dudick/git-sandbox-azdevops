@@ -1,5 +1,6 @@
 steps:
 - script: | 
+   echo "Build.Reason: $(Build.Reason)"
    echo "Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)"
    echo "Build.BuildId: $(Build.BuildId)"
    echo "Build.BuildNumber: $(Build.BuildNumber)"
