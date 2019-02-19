@@ -1,5 +1,3 @@
 steps:
 - script: echo $(qaBuildArgs)
   displayName: show qaBuildArgs
-- script: echo $(releaseBuildArgs)
-  displayName: show releaseBuildArgs
