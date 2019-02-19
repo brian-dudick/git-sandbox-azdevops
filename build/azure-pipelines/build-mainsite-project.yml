@@ -1,4 +1,4 @@
 steps:
 - bash: echo $(GIT_BRANCH) 
   displayName: Build Main Project Site
-  condition: startsWith(variables['Build.SourceBranch'], 'Features')
+  condition: contains(variables['Build.SourceBranch'], 'Features')
