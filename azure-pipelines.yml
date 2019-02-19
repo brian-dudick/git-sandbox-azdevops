@@ -33,9 +33,10 @@ pool:
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 variables:
-  qaBuildArgs: "QA Build Args"
-  releaseBuildArgs: "Release Build Args"
-  TMPDIR: $(Build.BinariesDirectory)
+  CI_NAME: Azure Pipelines
+  CI_BUILD_ID: $(Build.BuildId)
+  GIT_BRANCH: $[ coalesce(variables['System.PullRequest.SourceBranch'], variables['Build.SourceBranchName'], 'not-found') ]
+  GIT_COMMIT_SHA: $[ coalesce(variables['System.PullRequest.SourceCommitId'], variables['Build.SourceVersion'], 'not-found') ]
 
 steps:
 
