@@ -2,5 +2,5 @@ parameters:
   runExtendedTests: 'false'  # defaults for any parameters that aren't specified
 
 steps:
-- ${{ if contains($(Build.SourceBranchName), 'Features') }}:
+- ${{ contains($(Build.SourceBranchName), 'Features') }}:
   - bash: echo run features
