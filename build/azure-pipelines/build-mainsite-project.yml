@@ -1,4 +1,6 @@
 steps:
-- script: |
-    echo Run Build Main Site Project.
+- ${{ if contains($(Build.SourceBranchName), 'Release') }}:
+  - script: echo Run Build Main Site Project With Release Arguments.
+- ${{ if !contains($(Build.SourceBranchName), 'Release') }}:
+  - script: echo Run Build Main Site Project With QA Arguments.  
   displayName: 'Run Build Main Site Project'
