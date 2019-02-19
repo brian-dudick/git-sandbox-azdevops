@@ -1,4 +1,4 @@
 steps:
 #- ${{ if contains($(Build.SourceBranchName), 'Feature') }}:
-- bash: echo $(Build.SourceBranchName)
-  displayName: setup python
+- bash: echo $(GIT_BRANCH) 
+  displayName: Build Main Project Site
