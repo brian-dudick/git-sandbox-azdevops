@@ -1,6 +1,7 @@
+parameters:
+  runExtendedTests: 'false'  # defaults for any parameters that aren't specified
+
 steps:
-- ${{ if contains($(Build.SourceBranchName), 'Release') }}:
-  - script: echo Run Build Main Site Project With Release Arguments.
-- ${{ if !contains($(Build.SourceBranchName), 'Release') }}:
-  - script: echo Run Build Main Site Project With QA Arguments.  
-  displayName: 'Run Build Main Site Project'
+- script: npm test
+- ${{ if eq(parameters.runExtendedTests, 'false') }}:
+  - script: echo runExtendedTests
