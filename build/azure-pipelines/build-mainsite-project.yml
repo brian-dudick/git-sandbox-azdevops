@@ -1,4 +1,4 @@
 steps:
- - ${{ if contains($Build.SourceBranchName, 'Feature') }}:
+ - ${{ if contains($(Build.SourceBranchName), 'Feature') }}:
     - script: "foo"
       displayName: setup python
