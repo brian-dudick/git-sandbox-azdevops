@@ -48,6 +48,10 @@ steps:
 - template: build/azure-pipelines/rebuild-cocon-solution.yml  # Template reference
 
 #2) Build Main Site Project
+${{ if contains($(Build.SourceBranchName), 'release') }}:
+- template: build/azure-pipelines/build-mainsite-project.yml  # Template reference
+
+${{ if contains($(Build.SourceBranchName), 'feature') }}:
 - template: build/azure-pipelines/build-mainsite-project.yml  # Template reference
 
 #3) BUild Mobile API Project
