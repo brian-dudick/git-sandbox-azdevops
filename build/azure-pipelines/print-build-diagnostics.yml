@@ -18,6 +18,7 @@ steps:
    echo "Build.SourceVersionMessage: $(Build.SourceVersionMessage)" 
    echo "Build.SourceVersionMessage: $(Build.Repository.Name)" 
    echo "Build.SourceVersionMessage: $(Build.SourcesDirectory)" 
+   echo "GIT_BRANCH: $(GIT_BRANCH:)" 
    #Build.Repository.LocalPath
    #Build.Repository.Name
    #Build.SourcesDirectory
