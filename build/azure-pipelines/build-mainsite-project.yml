@@ -1,3 +1,4 @@
 steps:
-- script: echo $(qaBuildArgs)
-  displayName: show qaBuildArgs
+ - ${{ if contains($(Build.SourceBranchName), 'pypy', 'pypy3') }}:
+    - script: "foo"
+      displayName: setup python
