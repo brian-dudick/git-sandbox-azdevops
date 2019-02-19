@@ -1,4 +1,4 @@
 steps:
 - script: |
-    echo ARun Build FileServer.
+    echo Run Build FileServer.
   displayName: 'Run Build FileServer'
