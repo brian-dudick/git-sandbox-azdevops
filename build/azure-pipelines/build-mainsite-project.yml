@@ -1,4 +1,4 @@
 steps:
- - ${{ if contains($(Build.SourceBranchName), 'Feature') }}:
-    - script: "foo"
-      displayName: setup python
+#- ${{ if contains($(Build.SourceBranchName), 'Feature') }}:
+- script: echo "No problem reading $Build.SourceBranchName or $Build.SourceBranchName"
+displayName: setup python
