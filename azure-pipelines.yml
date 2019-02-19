@@ -50,7 +50,8 @@ steps:
 #3) BUild Mobile API Project
 - template: build/azure-pipelines/build-mobileapi-project.yml  # Template reference
 
-# 4) Build File Server Project
+# 4)Build File Server Project
+- template: build/azure-pipelines/build-fileserver-project.yml  # Template reference
 
 #5) Copy EmailProcessor
 
