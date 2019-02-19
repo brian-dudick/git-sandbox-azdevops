@@ -1,0 +1,4 @@
+steps:
+- script: |
+    echo Run Copy EmailProcessor Zip.
+  displayName: 'Run Copy EmailProcessor Zip'

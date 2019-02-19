@@ -1,0 +1,4 @@
+steps:
+- script: |
+    echo Run Publish Artifacts.
+  displayName: 'Run Publish Artifacts'

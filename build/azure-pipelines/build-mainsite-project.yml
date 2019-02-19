@@ -1,0 +1,4 @@
+steps:
+- script: |
+    echo Run Build Main Site Project.
+  displayName: 'Run Build Main Site Project'

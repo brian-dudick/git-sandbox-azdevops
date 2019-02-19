@@ -41,6 +41,21 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+#1) Rebuild Co-Construct Site Solution
+- template: build/azure-pipelines/rebuild-cocon-solution.yml  # Template reference
+
+#2) Build Main Site Project
+
+#3) BUild Mobile API Project
+
+# 4) Build File Server Project
+
+#5) Copy EmailProcessor
+
+#6) Copy TaskProcessor
+
+#7) Publish Artifacts
+
 - template: ci-templates/run-single-line-script.yml  # Template reference
 
 - template: ci-templates/run-multi-line-script.yml  # Template reference

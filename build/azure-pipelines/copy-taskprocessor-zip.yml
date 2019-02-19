@@ -1,0 +1,4 @@
+steps:
+- script: |
+    echo Run Copy TaskProcessor Zip.
+  displayName: 'Run Copy TaskProcessor Zip'

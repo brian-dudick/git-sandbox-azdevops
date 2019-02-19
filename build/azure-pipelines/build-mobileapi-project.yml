@@ -1,0 +1,4 @@
+steps:
+- script: |
+    echo Run Build MobileApi Project.
+  displayName: 'Run Build MobileApi Project'
