@@ -1,4 +1,4 @@
 steps:
- - ${{ if contains($(Build.SourceBranchName), 'pypy', 'pypy3') }}:
+ - ${{ if contains($Build.SourceBranchName, 'pypy', 'pypy3') }}:
     - script: "foo"
       displayName: setup python
