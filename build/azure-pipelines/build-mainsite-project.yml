@@ -2,4 +2,4 @@ parameters:
   runExtendedTests: 'false'  # defaults for any parameters that aren't specified
 
 steps:
-  - bash: echo run features $Build.SourceBranchName
+  - bash: echo run features $(Build.SourceBranchName)
