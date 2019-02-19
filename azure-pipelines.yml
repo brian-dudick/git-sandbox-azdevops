@@ -9,7 +9,7 @@ trigger:
     - v2.*
   branches:
     include:
-      - Feature\*
+      - Feature*
       - Hotfix*
       - Release*
     exclude:
