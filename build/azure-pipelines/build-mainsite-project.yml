@@ -3,5 +3,5 @@ parameters:
 
 steps:
 - ${{ if eq(parameters.runExtendedTests, 'false') }}:
-  - script: echo runExtendedTests
-- script: echo $(Build.SourceBranchName) 
+  - script: echo runExtendedTests $(Build.SourceBranchName) 
+displayName: 'Run MainSite'
