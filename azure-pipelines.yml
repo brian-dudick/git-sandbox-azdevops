@@ -11,8 +11,8 @@ trigger:
   #  - Bravo-*
   branches:
     include:
-      - Feature/*
-      - Hotfix-Update*
+      - Feature*
+      - Hotfix*
       - Release-*
     exclude:
       - master
