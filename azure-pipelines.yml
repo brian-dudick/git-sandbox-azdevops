@@ -33,15 +33,8 @@ pool:
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-#0) Generate Diagnostic Outpu
+#0) Generate Diagnostic Output
 - template: build/azure-pipelines/print-build-diagnostics.yml  # Template reference
 
 #1) Rebuild Co-Construct Site Solution

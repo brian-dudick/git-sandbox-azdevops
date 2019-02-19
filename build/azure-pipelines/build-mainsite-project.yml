@@ -1,5 +1,9 @@
-parameters:
-  runExtendedTests: 'false'  # defaults for any parameters that aren't specified
-
-steps:
-  - bash: echo run features $(Build.SourceBranchName)
+  variables:
+    qaBuildArgs: "QA Build Args"
+    releaseBuildArgs: "Release Build Args"
+  
+  steps:
+  - script: echo $(qaBuildArgs)
+    displayName: show qaBuildArgs
+  - script: echo $(releaseBuildArgs)
+    displayName: show releaseBuildArgs
