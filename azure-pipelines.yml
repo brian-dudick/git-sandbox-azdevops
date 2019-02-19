@@ -54,6 +54,7 @@ steps:
 - template: build/azure-pipelines/build-fileserver-project.yml  # Template reference
 
 #5) Copy EmailProcessor
+- template: build/azure-pipelines/copy-emailprocessor-zip.yml  # Template reference
 
 #6) Copy TaskProcessor
 
