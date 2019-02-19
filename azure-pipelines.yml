@@ -48,6 +48,7 @@ steps:
 - template: build/azure-pipelines/build-mainsite-project.yml  # Template reference
 
 #3) BUild Mobile API Project
+- template: build/azure-pipelines/build-mobileapi-project.yml  # Template reference
 
 # 4) Build File Server Project
 
