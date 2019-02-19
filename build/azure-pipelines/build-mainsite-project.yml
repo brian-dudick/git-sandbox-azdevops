@@ -1,9 +1,5 @@
-  variables:
-    qaBuildArgs: "QA Build Args"
-    releaseBuildArgs: "Release Build Args"
-  
-  steps:
-  - script: echo $(qaBuildArgs)
-    displayName: show qaBuildArgs
-  - script: echo $(releaseBuildArgs)
-    displayName: show releaseBuildArgs
+steps:
+- script: echo $(qaBuildArgs)
+  displayName: show qaBuildArgs
+- script: echo $(releaseBuildArgs)
+  displayName: show releaseBuildArgs

@@ -32,6 +32,11 @@ pool:
 
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
+variables:
+  qaBuildArgs: "QA Build Args"
+  releaseBuildArgs: "Release Build Args"
+  TMPDIR: $(Build.BinariesDirectory)
+
 steps:
 
 #0) Generate Diagnostic Output
