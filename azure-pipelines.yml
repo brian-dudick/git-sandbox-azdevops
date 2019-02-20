@@ -40,6 +40,7 @@ variables:
 
 steps:
 
+- template: build/azure-pipelines/print-build-diagnostics.yml
 - template: build/azure-pipelines/build.yml
 
 #0) Generate Diagnostic Output
