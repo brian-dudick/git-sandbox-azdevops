@@ -1,5 +1,6 @@
 parameters:
   solution: PrimeService/PrimeService.csproj
+  msBuildArgs: '/P:Configuration=Release;DeployOnBuild=true;PublishProfile=TeamCityPackage;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
 
 steps:
 - task: NuGetToolInstaller@0
