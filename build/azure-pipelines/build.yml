@@ -5,9 +5,11 @@ steps:
 # msbuild
 - ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
   - task: msbuild@1
+  displayName: 'Build Deploy Pacakge (Main Site) For QA Build'
 
 - ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
   - task: msbuild@1
+  displayName: 'Build Deploy Pacakge (Main Site) For Release Build'
 
 # dotnet
 #- ${{ if !contains(variables['Build.SourceBranch'], 'Features') }}:
