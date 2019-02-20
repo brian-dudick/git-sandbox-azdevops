@@ -7,11 +7,10 @@ parameters:
 
 steps:
 - powershell: |
+   write-host "solution: $solution"
    write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
-   
-   $Env:BUILD_SourceBranchName | get-member
 
    if($Env:BUILD_SourceBranchName -like '*Features*')
    {
