@@ -5,13 +5,16 @@ parameters:
 #EnableUpdateable=false;
 steps:
 - powershell: |
-   write-host "PARAMETERS_solution: $ENV:PARAMETERS_solution"
-   write-host "parameters_solution: $ENV:parameters_solution"
-   write-host "solution: $ENV:solution"
-   write-host "solution: $ENV:BUILD_solution"
-   write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
-   write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
-   write-host "Build.SourceVersion: $(Build.SourceVersion)"
+   # Using an input-macro:
+   Write-Host "This works: $(solution)"
+
+    # Using the env var directly:
+    Write-Host "This does not work: $env:SOLUTION"
+
+    # Using the mapped env var:
+    Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
+    env:
+      MY_MAPPED_ENV_VAR: $(solution)
 
    if($Env:BUILD_SourceBranchName -like '*Features*')
    {
