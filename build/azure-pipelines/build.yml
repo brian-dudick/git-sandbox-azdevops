@@ -29,6 +29,6 @@ steps:
   displayName: 'Run MS Build On Project'
   inputs:
     solution: 'PrimeService/PrimeService.csproj'
-    msbuildArguments: $Env:MS_BUILD_DEFAULT_ARGS #'/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
+    msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
     clean: true
     logProjectEvents: true
