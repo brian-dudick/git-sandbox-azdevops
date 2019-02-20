@@ -3,7 +3,7 @@ parameters:
 
 steps:
 # msbuild
-- ${{ if not contains(variables['Build.SourceBranch'], 'Features') }}:
+- ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
   - task: msbuild@1
   - task: vstest@2
 
