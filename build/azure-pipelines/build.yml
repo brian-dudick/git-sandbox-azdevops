@@ -3,12 +3,15 @@ parameters:
 
 steps:
 # msbuild
-- ${{ if eq(variables['Build.SourceBranch'], 'msbuild') }}:
-  - task: Bash@3
+- ${{ if eq(parameters.toolset, 'msbuild') }}:
+  - task: msbuild@1
+  - task: vstest@2
+
+# dotnet
+- ${{ if eq(parameters.toolset, 'dotnet') }}:
+  - task: dotnet@1
     inputs:
-    script: 'echo bash 3'
-    displayName: Run Bash 3
-  - task: Bash@4
+      command: build
+  - task: dotnet@1
     inputs:
-    script: 'echo bash 4'
-    displayName: Run Bash 4
+      command: test
