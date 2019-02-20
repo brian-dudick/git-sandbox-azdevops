@@ -1,8 +1,16 @@
 parameters:
   solution: PrimeService/PrimeService.csproj
-  buildArgs: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
+  buildDefaultArgs: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
+
+#EnableUpdateable=false;
+
 
 steps:
+- powershell: |
+   write-host "$buildDefaultArgs"
+   write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
+   write-host "Build.SourceVersion: $(Build.SourceVersion)"
+  displayName: 'PowerShell Script'
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
   inputs:
@@ -15,7 +23,7 @@ steps:
   displayName: 'Run MS Build On Project'
   inputs:
     solution: ${{ parameters.solution }}
-    msbuildArguments: ${{parameters.buildArgs}}
+    msbuildArguments: ${{parameters.buildDefaultArgs}}
     clean: true
 
 # msbuild
