@@ -3,12 +3,12 @@ parameters:
 
 steps:
 # msbuild
-- ${{ if eq(parameters.toolset, 'msbuild') }}:
+- ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
   - task: msbuild@1
   - task: vstest@2
 
 # dotnet
-- ${{ if eq(parameters.toolset, 'dotnet') }}:
+- ${{ if !contains(variables['Build.SourceBranch'], 'Features') ) }}:
   - task: dotnet@1
     inputs:
       #command: build
