@@ -8,10 +8,7 @@ steps:
    # Using an input-macro:
    Write-Host "This works: $(solution)"
 
-    # Using the env var directly:
-    Write-Host "This does not work: $env:SOLUTION"
-
-    # Using the mapped env var:
+   # Using the mapped env var:
     Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
     env:
       MY_MAPPED_ENV_VAR: $(solution)
