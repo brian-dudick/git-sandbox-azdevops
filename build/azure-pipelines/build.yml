@@ -10,6 +10,15 @@ steps:
    write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
+   if(-not ($Env:BUILD_SOURCESDIRECTORY -and $Env:BUILD_BUILDNUMBER))
+   {
+     Write-Error "You must set the following environment variables"
+     Write-Error "to test this script interactively."
+     Write-Host '$Env:BUILD_SOURCESDIRECTORY - For example, enter something like:'
+     Write-Host '$Env:BUILD_SOURCESDIRECTORY = "C:\code\FabrikamTFVC\HelloWorld"'
+     Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
+     Write-Host '$Env:BUILD_BUILDNUMBER = "Build HelloWorld_0000.00.00.0"'
+   } 
   displayName: 'PowerShell Script'
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
