@@ -10,13 +10,13 @@ steps:
    write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
-   if($Env:BUILD_SourceBranchName-contains 'Features')
+   if($Env:BUILD_SourceBranchName -contains 'Features')
    {
      Write-Host 'Running Features Param Build'
      Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
      Write-Host '$Env:BUILD_BUILDNUMBER = "Build HelloWorld_0000.00.00.0"'
    } 
-  displayName: 'PowerShell Script'
+  displayName: 'Setup MB Build Args'
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
   inputs:
