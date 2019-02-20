@@ -40,26 +40,28 @@ variables:
 
 steps:
 
+- template: build/azure-pipelines/build.yml
+
 #0) Generate Diagnostic Output
-- template: build/azure-pipelines/print-build-diagnostics.yml  # Template reference
+#- template: build/azure-pipelines/print-build-diagnostics.yml  # Template reference
 
 #1) Rebuild Co-Construct Site Solution
-- template: build/azure-pipelines/rebuild-cocon-solution.yml  # Template reference
+#- template: build/azure-pipelines/rebuild-cocon-solution.yml  # Template reference
 
 #2) Build Main Site Project
-- template: build/azure-pipelines/build-mainsite-project.yml  # Template reference
+#- template: build/azure-pipelines/build-mainsite-project.yml  # Template reference
 
 #3) BUild Mobile API Project
-- template: build/azure-pipelines/build-mobileapi-project.yml  # Template reference
+#- template: build/azure-pipelines/build-mobileapi-project.yml  # Template reference
 
 # 4)Build File Server Project
-- template: build/azure-pipelines/build-fileserver-project.yml  # Template reference
+#- template: build/azure-pipelines/build-fileserver-project.yml  # Template reference
 
 #5) Copy EmailProcessor
-- template: build/azure-pipelines/copy-emailprocessor-zip.yml  # Template reference
+#- template: build/azure-pipelines/copy-emailprocessor-zip.yml  # Template reference
 
 #6) Copy TaskProcessor
-- template: build/azure-pipelines/copy-taskprocessor-zip.yml  # Template reference
+#- template: build/azure-pipelines/copy-taskprocessor-zip.yml  # Template reference
 
 #7) Publish Artifacts
-- template: build/azure-pipelines/publish-artifacts.yml  # Template reference
+#- template: build/azure-pipelines/publish-artifacts.yml  # Template reference

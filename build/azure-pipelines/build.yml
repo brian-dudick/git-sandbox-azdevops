@@ -1,0 +1,8 @@
+parameters:
+  toolset: msbuild
+
+steps:
+# msbuild
+- ${{ if eq(parameters.toolset, 'msbuild') }}:
+  - task: msbuild@1
+  - task: vstest@2

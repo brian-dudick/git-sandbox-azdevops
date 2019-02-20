@@ -1,4 +1,5 @@
 steps:
-- bash: echo $(GIT_BRANCH) 
-  displayName: Build Main Project Site
-  condition: contains(variables['Build.SourceBranch'], 'Features')
+- task:
+  - bash: echo $(GIT_BRANCH) 
+    displayName: Build Main Project Site - QA Build
+    condition: contains(variables['Build.SourceBranch'], 'Features')
