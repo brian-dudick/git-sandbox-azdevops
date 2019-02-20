@@ -12,11 +12,17 @@ steps:
    Write-Host "GIT_BRANCH is $Env:GIT_BRANCH"
    Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
 
-   if($Env:BUILD_SourceBranchName -like '*Features*')
-   {
+   if($Env:BUILD_SourceBranchName -like '*Features*'){
      Write-Host 'Running Features Param Build'
      Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
    } 
+   elseif{
+     Write-Host 'Running Non-Features Param Build. Append EnableUpdateable=false;'
+   }
+   else{
+     Write-Host 'Fall Thru'
+   }
+
   displayName: 'Setup MB Build Args'
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
