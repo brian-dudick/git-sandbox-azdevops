@@ -7,6 +7,8 @@ steps:
   - task: Bash@3
     inputs:
     script: 'echo bash 3'
+    displayName: Run Bash 3
   - task: Bash@4
     inputs:
     script: 'echo bash 4'
+    displayName: Run Bash 4
