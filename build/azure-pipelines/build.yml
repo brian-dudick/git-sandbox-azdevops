@@ -10,6 +10,7 @@ steps:
    Write-Host "My ID is $Env:AGENT_ID."
    Write-Host "CI_NAME is $Env:CI_NAME."
    Write-Host "GIT_BRANCH is $Env:GIT_BRANCH"
+   Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
 
    if($Env:BUILD_SourceBranchName -like '*Features*')
    {
