@@ -10,7 +10,7 @@ steps:
    write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
-   if($Env:BUILD_SourceBranchName -contains 'Features*')
+   if($Env:BUILD_SourceBranchName-contains 'Features')
    {
      Write-Host 'Running Features Param Build'
      Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
