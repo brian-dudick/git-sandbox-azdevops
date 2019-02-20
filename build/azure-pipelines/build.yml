@@ -7,7 +7,7 @@ parameters:
 
 steps:
 - powershell: |
-   write-host "solution: $solution"
+   write-host "solution: $ENV:solution"
    write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
