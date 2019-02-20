@@ -11,7 +11,7 @@ steps:
 - ${{ if eq(parameters.toolset, 'dotnet') }}:
   - task: dotnet@1
     inputs:
-      command: build
+      #command: build
   - task: dotnet@1
     inputs:
-      command: test
+      #command: test
