@@ -7,7 +7,7 @@ parameters:
 
 steps:
 - powershell: |
-   write-host "buildDefaultArgs" : $(buildDefaultArgs)
+   write-host "buildDefaultArgs: $(buildDefaultArgs)"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
   displayName: 'PowerShell Script'
