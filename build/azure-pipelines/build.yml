@@ -27,7 +27,7 @@ steps:
 - task: msbuild@1
   displayName: 'Run MS Build On Project'
   inputs:
-    solution: PrimeService/PrimeService.csproj
+    solution: 'PrimeService/PrimeService.csproj'
     #msbuildArguments: ${{parameters.buildDefaultArgs}}
     clean: true
 
