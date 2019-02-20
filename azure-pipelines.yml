@@ -37,7 +37,8 @@ variables:
   CI_BUILD_ID: $(Build.BuildId)
   GIT_BRANCH: $[ coalesce(variables['System.PullRequest.SourceBranch'], variables['Build.SourceBranchName'], 'not-found') ]
   GIT_COMMIT_SHA: $[ coalesce(variables['System.PullRequest.SourceCommitId'], variables['Build.SourceVersion'], 'not-found') ]
-
+  MS_BUILD_DEFAULT_ARGS: /P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"
+  
 steps:
 
 #- template: build/azure-pipelines/print-build-diagnostics.yml
