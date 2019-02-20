@@ -8,7 +8,7 @@ steps:
   - task: vstest@2
 
 # dotnet
-- ${{ if !contains(variables['Build.SourceBranch'], 'Features') ) }}:
+- ${{ if !contains(variables['Build.SourceBranch'], 'Features') }}:
   - task: dotnet@1
     inputs:
       #command: build
