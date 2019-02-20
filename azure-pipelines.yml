@@ -41,10 +41,9 @@ variables:
   buildPlatform: 'Any CPU'
 
 steps:
-- template: build/azure-pipelines/build.yml  # Template reference
+- template: build/azure-pipelines/build.yml
 
 #1) Rebuild Co-Construct Site Solution
-#- template: build/azure-pipelines/rebuild-cocon-solution.yml  # Template reference
 
 #2) Build Main Site Project
 
@@ -57,4 +56,5 @@ steps:
 #6) Copy TaskProcessor
 
 #7) Publish Artifacts
+- template: build/azure-pipelines/publish-artifacts.yml
 

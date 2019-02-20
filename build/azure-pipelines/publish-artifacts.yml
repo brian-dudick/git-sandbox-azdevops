@@ -1,4 +1,6 @@
 steps:
-- script: |
-    echo Run Publish Artifacts.
-  displayName: 'Run Publish Artifacts'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: drop

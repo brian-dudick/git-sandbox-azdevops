@@ -31,21 +31,3 @@ steps:
     msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
     clean: true
     logProjectEvents: true
-
-# msbuild
-#- ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
-#  - task: msbuild@1
-#  inputs:
-  #  solution: PrimeService/PrimeService.csproj
-
-#- ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
-#  - task: msbuild@1
-
-# dotnet
-#- ${{ if !contains(variables['Build.SourceBranch'], 'Features') }}:
-#  - task: dotnet@1
-#    inputs:
-#      #command: build
-#  - task: dotnet@1
-#    inputs:
-#      #command: test
