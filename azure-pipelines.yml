@@ -37,7 +37,7 @@ name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)
 variables:
   CI_NAME: Azure Pipelines
   GIT_BRANCH: $(Build.SourceBranchName)
-  MS_BUILD_DEFAULT_ARGS: /P:Configuration=Release;DeployOnBuild=true;PublishProfile=TeamCityPackage;PackageLocation="$(Build.ArtifactStagingDirectory)\CoConstructSite-$(Build.BuildId).zip
+  MS_BUILD_DEFAULT_ARGS: /P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\CoConstructSite-$(Build.BuildId).zip
   buildPlatform: 'Any CPU'
 
 steps:
