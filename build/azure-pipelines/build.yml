@@ -5,4 +5,8 @@ steps:
 # msbuild
 - ${{ if eq(variables['Build.SourceBranch'], 'msbuild') }}:
   - task: Bash@3
+    inputs:
+    script: 'echo bash 3'
   - task: Bash@4
+    inputs:
+    script: 'echo bash 4'
