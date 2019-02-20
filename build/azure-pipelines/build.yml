@@ -12,7 +12,6 @@ steps:
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
    
    $Env:BUILD_SourceBranchName | get-member
-   $Env:BUILD_SourceBranchName | get-type
 
    if(1 -eq 1)
    {
