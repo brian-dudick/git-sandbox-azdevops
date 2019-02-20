@@ -3,6 +3,8 @@ parameters:
 
 steps:
 # msbuild
-- ${{ if eq(parameters.toolset, 'msbuild') }}:
-  - task: msbuild@1
-  - task: vstest@2
+- ${{ if contains(variables['Build.SourceBranch'], 'Featrues') }}:
+  - task: Bash@3
+  inputs:
+    script: echo $(GIT_BRANCH)
+  #
