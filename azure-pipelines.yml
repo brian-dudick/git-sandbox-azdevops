@@ -4,11 +4,6 @@
 # https://aka.ms/yaml
 
 trigger:
-  #tags:
-  #  include: 
-  #  - Mobile-*
-  #  - Alpha-*
-  #  - Bravo-*
   branches:
     include:
       - Feature*
