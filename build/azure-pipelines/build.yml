@@ -5,6 +5,8 @@ steps:
 # msbuild
 - ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
   - task: msbuild@1
+  inputs:
+    solution: PrimeService/PrimeService/.csproj
 
 - ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
   - task: msbuild@1
