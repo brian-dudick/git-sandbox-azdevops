@@ -13,7 +13,7 @@ steps:
    
    $Env:BUILD_SourceBranchName | get-member
 
-   if(1 -eq 1)
+   if($Env:BUILD_SourceBranchName -like '*Features*')
    {
      Write-Host 'Running Features Param Build'
      Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
