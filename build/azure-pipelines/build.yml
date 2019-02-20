@@ -1,15 +1,19 @@
 parameters:
-  toolset: msbuild
+  solution: PrimeService/PrimeService/.csproj
 
 steps:
+- task: msbuild@1
+  inputs:
+    solution: ${{ parameters.solution }}
+
 # msbuild
-- ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
-  - task: msbuild@1
-  #inputs:
+#- ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
+#  - task: msbuild@1
+#  inputs:
   #  solution: PrimeService/PrimeService/.csproj
 
-- ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
-  - task: msbuild@1
+#- ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
+#  - task: msbuild@1
 
 # dotnet
 #- ${{ if !contains(variables['Build.SourceBranch'], 'Features') }}:
