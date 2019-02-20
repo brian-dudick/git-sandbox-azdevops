@@ -28,8 +28,9 @@ steps:
   displayName: 'Run MS Build On Project'
   inputs:
     solution: 'PrimeService/PrimeService.csproj'
-    #msbuildArguments: ${{parameters.buildDefaultArgs}}
+    msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
     clean: true
+    logProjectEvents: true
 
 # msbuild
 #- ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
