@@ -16,7 +16,7 @@ steps:
      Write-Host 'Running Features Param Build'
      Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
    } 
-   elseif{
+   elseif($Env:BUILD_SourceBranchName -match '*Features*'){
      Write-Host 'Running Non-Features Param Build. Append EnableUpdateable=false;'
    }
    else{
