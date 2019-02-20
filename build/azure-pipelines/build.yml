@@ -1,0 +1,58 @@
+parameters:
+  solution: PrimeService/PrimeService.csproj
+  buildDefaultArgs: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
+  global_variable: value 
+
+#EnableUpdateable=false;
+steps:
+- powershell: |
+   Write-Host "Hello World from $Env:AGENT_NAME."
+   Write-Host "My ID is $Env:AGENT_ID."
+   Write-Host "CI_NAME is $Env:CI_NAME."
+   Write-Host "GIT_BRANCH is $Env:GIT_BRANCH"
+   Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
+
+   if($Env:BUILD_SourceBranchName -like '*Features*'){
+     Write-Host 'Running Features Param Build'
+     Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
+   } 
+   elseif($Env:BUILD_SourceBranchName -match '*Features*'){
+     Write-Host 'Running Non-Features Param Build. Append EnableUpdateable=false;'
+   }
+   else{
+     Write-Host 'Fall Thru'
+   }
+
+  displayName: 'Setup MB Build Args'
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: ${{ parameters.solution }}
+- task: msbuild@1
+  displayName: 'Run MS Build On Project'
+  inputs:
+    solution: ${{ parameters.solution }}
+    msbuildArguments: ${{parameters.buildDefaultArgs}}
+    clean: true
+
+# msbuild
+#- ${{ if not(contains(variables['Build.SourceBranch'], 'Features')) }}:
+#  - task: msbuild@1
+#  inputs:
+  #  solution: PrimeService/PrimeService.csproj
+
+#- ${{ if contains(variables['Build.SourceBranch'], 'Features') }}:
+#  - task: msbuild@1
+
+# dotnet
+#- ${{ if !contains(variables['Build.SourceBranch'], 'Features') }}:
+#  - task: dotnet@1
+#    inputs:
+#      #command: build
+#  - task: dotnet@1
+#    inputs:
+#      #command: test
