@@ -11,6 +11,7 @@ steps:
   inputs:
     restoreSolution: ${{ parameters.solution }}
 - task: msbuild@1
+  displayName: 'Run MS Build On Project'
   inputs:
     solution: ${{ parameters.solution }}
 
