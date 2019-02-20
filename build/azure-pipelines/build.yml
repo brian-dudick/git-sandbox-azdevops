@@ -15,14 +15,6 @@ steps:
      Write-Host 'Run QA, Non-Precompiled Build'
    }
 
-   if($Env:BUILD_SourceBranchName -like '*Features*'){
-     Write-Host 'Running Features Param Build'
-     Write-Host '$Env:BUILD_BUILDNUMBER - For example, enter something like:'
-   } 
-   else{
-     Write-Host 'Fall Thru'
-   }
-
   displayName: 'Setup MB Build Args'
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
