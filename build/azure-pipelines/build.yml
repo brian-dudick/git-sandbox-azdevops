@@ -3,11 +3,9 @@ parameters:
   buildDefaultArgs: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'
 
 #EnableUpdateable=false;
-
-
 steps:
 - powershell: |
-   write-host "solution: $ENV:solution"
+   write-host "solution: $ENV:parameters_solution"
    write-host "buildDefaultArgs: $Env:BUILD_SourceBranchName"
    write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
    write-host "Build.SourceVersion: $(Build.SourceVersion)"
