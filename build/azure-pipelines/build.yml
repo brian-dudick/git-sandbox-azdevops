@@ -16,7 +16,7 @@ steps:
      Write-Host 'Run QA, Non-Precompiled Build'
    }
    Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
-  displayName: 'Setup MS Build Args'
+  displayName: 'Run PrimeService Pre-Build Script'
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
   inputs:
@@ -26,7 +26,7 @@ steps:
   inputs:
     restoreSolution: ${{ parameters.solution }}
 - task: msbuild@1
-  displayName: 'Run MS Build On Project'
+  displayName: 'Run PrimeService Build'
   inputs:
     solution: 'PrimeService/PrimeService.csproj'
     msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\Co-ConstructSite.zip"'

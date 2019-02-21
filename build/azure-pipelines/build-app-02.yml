@@ -12,11 +12,11 @@ steps:
      Write-Host 'Run QA, Non-Precompiled Build'
    }
    Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
-   displayName: 'Run App 01 Pre-Build Script'
+   displayName: 'Run App 02 Pre-Build Script'
 - task: msbuild@1
-  displayName: 'Run App 01 Build'
+  displayName: 'Run App 02 Build'
   inputs:
-    solution: 'git-sandbox/sandbox-app-01/sandbox-app-01.csproj'
-    msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\sandbox-app-01.zip"'
+    solution: 'git-sandbox/sandbox-app-02/sandbox-app-02.csproj'
+    msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\sandbox-app-02.zip"'
     clean: true
     logProjectEvents: true
