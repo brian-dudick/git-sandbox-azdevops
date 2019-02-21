@@ -1,0 +1,29 @@
+steps:
+- powershell: |
+   # Write your powershell commands here.
+   
+   #get-childitem "$(Build.ArtifactStagingDirectory)"
+   
+   write-host "Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)"
+   write-host "Build.BuildId: $(Build.BuildId)"
+   write-host "Build.BuildNumber: $(Build.BuildNumber)"
+   write-host "Build.BuildUri: $(Build.BuildUri)"
+   write-host "Build.BuildUri: $(Build.BuildUri)"
+   write-host "Build.DefinitionName: $(Build.DefinitionName)"
+   write-host "Build.DefinitionVersion: $(Build.DefinitionVersion)"
+   write-host "Build.Repository.Clean: $(Build.Repository.Clean)"
+   write-host "Build.Repository.Provider: $(Build.Repository.Provider)"
+   write-host "Build.Repository.Uri: $(Build.Repository.Uri)"
+   write-host "Build.SourceBranch: $(Build.SourceBranch)"
+   write-host "Build.SourceBranchName: $(Build.SourceBranchName)"
+   write-host "Build.SourceVersion: $(Build.SourceVersion)"
+   write-host "Build.SourceVersionMessage: $(Build.Repository.LocalPath)" 
+   write-host "Build.SourceVersionMessage: $(Build.SourceVersionMessage)" 
+   write-host "Build.SourceVersionMessage: $(Build.Repository.Name)" 
+   write-host "Build.SourceVersionMessage: $(Build.SourcesDirectory)" 
+   #Build.Repository.LocalPath
+   #Build.Repository.Name
+   #Build.SourcesDirectory
+
+   # Use the environment variables input below to pass secret variables to this script.
+  displayName: 'Get Pre-defined Variables'

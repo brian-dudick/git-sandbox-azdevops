@@ -1,0 +1,6 @@
+steps:
+- powershell: |
+   get-childitem -Path "$(Build.SourcesDirectory)" -Include *.exe,*.zip -File -Recurse -ErrorAction SilentlyContinue
+   get-childitem -Path "$(Build.ArtifactStagingDirectory)" -Include *.exe,*.zip -File -Recurse -ErrorAction SilentlyContinue   
+   # Use the environment variables input below to pass secret variables to this script.
+  displayName: 'Find Post-Build Items'

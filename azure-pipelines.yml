@@ -37,9 +37,11 @@ variables:
   buildPlatform: 'Any CPU'
 
 steps:
-- template: build/azure-pipelines/build.yml
+#- template: build/azure-pipelines/build.yml
 
+- template: build/azure-pipelines/get-predefined-vars.yml
 - template: build/azure-pipelines/build-app-01.yml
+- template: build/azure-pipelines/find-postbuild-items.yml
 
 #1) Rebuild Co-Construct Site Solution
 
