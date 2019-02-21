@@ -38,6 +38,8 @@ variables:
 steps:
 - template: build/azure-pipelines/build.yml
 
+- template: build/azure-pipelines/build-app-01.yml
+
 #1) Rebuild Co-Construct Site Solution
 
 #2) Build Main Site Project

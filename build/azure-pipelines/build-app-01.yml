@@ -1,0 +1,25 @@
+parameters:
+  solution: PrimeService/PrimeService.csproj
+
+#EnableUpdateable=false;
+steps:
+- powershell: |
+   Write-Host "CI_NAME is $Env:CI_NAME."
+   Write-Host "GIT_BRANCH is $Env:GIT_BRANCH"
+   Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
+
+   if(($Env:GIT_BRANCH -match 'Release*') -or ($Env:GIT_BRANCH -match 'master*')){
+     Write-Host 'Run The Precompiled Build With EnableUpdateable=false'
+     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
+   } 
+   else{
+     Write-Host 'Run QA, Non-Precompiled Build'
+   }
+   Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
+- task: msbuild@1
+  displayName: 'Run MS Build On Project'
+  inputs:
+    solution: 'git-sandbox/sandbox-app-01/sandbox-app-01.csproj'
+    msbuildArguments: '/P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\sandbox-app-01.zip"'
+    clean: true
+    logProjectEvents: true
