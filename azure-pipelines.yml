@@ -42,10 +42,7 @@ steps:
 - template: build/azure-pipelines/find-postbuild-items.yml
 
 #1) Rebuild Co-Construct Site Solution
-<<<<<<< HEAD
 - template: build/azure-pipelines/rebuild-cocon-solution.yml
-=======
->>>>>>> 4f0734cf6ed32e869d01e8b59cdf99f2edea4b52
 
 #2) Build Main Site Project
 - template: build/azure-pipelines/build-mainsite-project.yml
