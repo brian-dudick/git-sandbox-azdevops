@@ -57,3 +57,14 @@ steps:
 
 #7) Publish Artifacts
 - template: build/azure-pipelines/publish-artifacts.yml
+
+- task: GithubRelease@0 
+  displayName: 'Create GitHub Release'      
+  inputs:
+    githubConnection: zenithworks
+    repositoryName: brian-dudick/git-sandbox-azdevops
+    tagSource: manual
+    tag: $(Build.BuildNumber)      
+    assets: |
+         $(Build.ArtifactStagingDirectory)/*.exe
+         $(Build.ArtifactStagingDirectory)/README.txt
