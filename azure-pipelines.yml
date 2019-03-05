@@ -19,7 +19,7 @@ pr:
     include:
     - master
     - Development*
-    - Release-*
+    - Release*
 
 pool:
     name: 'Hosted VS2017'
