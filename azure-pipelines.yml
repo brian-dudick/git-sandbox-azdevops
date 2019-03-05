@@ -4,16 +4,10 @@
 # https://aka.ms/yaml
 
 trigger:
-  #tags:
-  #  include: 
-  #  - Mobile-*
-  #  - Alpha-*
-  #  - Bravo-*
   branches:
     include:
       - Feature*
       - Hotfix*
-      - Release-*
     exclude:
       - master
   paths:
@@ -24,25 +18,34 @@ pr:
   branches:
     include:
     - master
-    - Development
-    - Release-*
+    - Development*
+    - Release*
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+    name: 'Hosted VS2017'
+    vmImage: vs2017-win2016
+    demands: MSBuild
 
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  CI_NAME: Azure Pipelines
+  GIT_BRANCH: $(Build.SourceBranchName)
+  MS_BUILD_DEFAULT_ARGS: /P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\CoConstructSite-$(Build.BuildId).zip
+  buildPlatform: 'Any CPU'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+steps:
+#- template: build/azure-pipelines/build.yml
+
+- template: build/azure-pipelines/get-predefined-vars.yml
+- template: build/azure-pipelines/build-app-01.yml
+- template: build/azure-pipelines/find-postbuild-items.yml
 
 #1) Rebuild Co-Construct Site Solution
+<<<<<<< HEAD
 - template: build/azure-pipelines/rebuild-cocon-solution.yml
+=======
+>>>>>>> 4f0734cf6ed32e869d01e8b59cdf99f2edea4b52
 
 #2) Build Main Site Project
 - template: build/azure-pipelines/build-mainsite-project.yml
@@ -56,7 +59,4 @@ steps:
 #6) Copy TaskProcessor
 
 #7) Publish Artifacts
-
-- template: ci-templates/run-single-line-script.yml  # Template reference
-
-- template: ci-templates/run-multi-line-script.yml  # Template reference
+- template: build/azure-pipelines/publish-artifacts.yml
