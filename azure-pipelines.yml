@@ -8,8 +8,6 @@ trigger:
     include:
       - Feature*
       - Hotfix*
-      - Release-*
-      - master
     exclude:
       - master
   paths:
@@ -20,7 +18,7 @@ pr:
   branches:
     include:
     - master
-    - Development
+    - Development*
     - Release-*
 
 pool:
@@ -57,4 +55,3 @@ steps:
 
 #7) Publish Artifacts
 - template: build/azure-pipelines/publish-artifacts.yml
-
