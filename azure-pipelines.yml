@@ -65,6 +65,6 @@ steps:
     repositoryName: brian-dudick/git-sandbox-azdevops
     tagSource: manual
     tag: $(Build.BuildNumber)      
-    assets: |
-         $(Build.ArtifactStagingDirectory)/*.exe
-         $(Build.ArtifactStagingDirectory)/README.txt
+    #assets: |
+    #     $(Build.ArtifactStagingDirectory)/*.exe
+    #     $(Build.ArtifactStagingDirectory)/README.txt
