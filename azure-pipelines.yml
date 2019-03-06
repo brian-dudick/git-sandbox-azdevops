@@ -12,7 +12,8 @@ pr:
   branches:
     include:
     - master
-    - Development*
+    - Development
+
 
 pool:
     name: 'Hosted VS2017'
