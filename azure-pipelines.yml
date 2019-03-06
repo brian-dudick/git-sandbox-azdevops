@@ -34,14 +34,9 @@ variables:
 
 steps:
 
-- powershell: |
-   if(($Env:GIT_BRANCH -match 'Release*')){
-     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
-   } 
-  displayName: 'Set Build Type Build Arguments Release Type'
 
 #- template: build/azure-pipelines/build.yml
-
+- template: build/azure-pipelines/set-msbuild-parameter-vars.yml
 - template: build/azure-pipelines/get-predefined-vars.yml
 #- template: build/azure-pipelines/build-app-01.yml
 #- template: build/azure-pipelines/find-postbuild-items.yml

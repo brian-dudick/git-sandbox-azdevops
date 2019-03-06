@@ -1,0 +1,6 @@
+steps:
+- powershell: |
+   if(($Env:GIT_BRANCH -match 'Release*')){
+     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
+   } 
+  displayName: 'Set MS Build Parameter Variables'
