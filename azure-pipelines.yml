@@ -42,10 +42,10 @@ steps:
 - template: build/azure-pipelines/find-postbuild-items.yml
 
 #1) Rebuild Co-Construct Site Solution
-- template: build/azure-pipelines/rebuild-cocon-solution.yml
+#- template: build/azure-pipelines/rebuild-cocon-solution.yml
 
 #2) Build Main Site Project
-- template: build/azure-pipelines/build-mainsite-project.yml
+#- template: build/azure-pipelines/build-mainsite-project.yml
 
 #3) BUild Mobile API Project
 
@@ -56,7 +56,7 @@ steps:
 #6) Copy TaskProcessor
 
 #7) Publish Artifacts
-- template: build/azure-pipelines/publish-artifacts.yml
+#- template: build/azure-pipelines/publish-artifacts.yml
 
 - task: GithubRelease@0 
   displayName: 'Create GitHub Release'      
