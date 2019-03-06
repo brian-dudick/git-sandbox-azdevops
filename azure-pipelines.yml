@@ -4,6 +4,9 @@
 # https://aka.ms/yaml
 
 trigger:
+  branches:
+    include:
+    - *
   paths:
     exclude:
     - README.md
