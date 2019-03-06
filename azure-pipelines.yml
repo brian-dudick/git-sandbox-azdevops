@@ -36,8 +36,8 @@ steps:
 #- template: build/azure-pipelines/build.yml
 
 - template: build/azure-pipelines/get-predefined-vars.yml
-- template: build/azure-pipelines/build-app-01.yml
-- template: build/azure-pipelines/find-postbuild-items.yml
+#- template: build/azure-pipelines/build-app-01.yml
+#- template: build/azure-pipelines/find-postbuild-items.yml
 
 #1) Rebuild Co-Construct Site Solution
 #- template: build/azure-pipelines/rebuild-cocon-solution.yml
@@ -55,6 +55,21 @@ steps:
 
 #7) Publish Artifacts
 #- template: build/azure-pipelines/publish-artifacts.yml
+
+- powershell: |
+   Write-Host "CI_NAME is $Env:CI_NAME."
+   Write-Host "GIT_BRANCH is $Env:GIT_BRANCH"
+   Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
+
+   if(($Env:GIT_BRANCH -match 'Release*') -or ($Env:GIT_BRANCH -match 'master*')){
+     Write-Host 'Run The Precompiled Build With EnableUpdateable=false'
+     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
+   } 
+   else{
+     Write-Host 'Run QA, Non-Precompiled Build'
+   }
+   Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
+  displayName: 'Check Release Type'
 
 - task: GithubRelease@0 
   displayName: 'Create GitHub Release'      
