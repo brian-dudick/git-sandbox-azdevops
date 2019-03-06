@@ -33,6 +33,13 @@ variables:
   buildPlatform: 'Any CPU'
 
 steps:
+
+- powershell: |
+   if(($Env:GIT_BRANCH -match 'Release*')){
+     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
+   } 
+  displayName: 'Set Build Type Build Arguments Release Type'
+
 #- template: build/azure-pipelines/build.yml
 
 - template: build/azure-pipelines/get-predefined-vars.yml
@@ -55,12 +62,6 @@ steps:
 
 #7) Publish Artifacts
 #- template: build/azure-pipelines/publish-artifacts.yml
-
-- powershell: |
-   if(($Env:GIT_BRANCH -match 'Release*')){
-     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
-   } 
-  displayName: 'Set Build Type Build Arguments Release Type'
 
 - task: GithubRelease@0 
   displayName: 'Create GitHub Release'      
