@@ -61,7 +61,7 @@ steps:
    Write-Host "GIT_BRANCH is $Env:GIT_BRANCH"
    Write-Host "MS_BUILD_DEFAULT_ARGS is $Env:MS_BUILD_DEFAULT_ARGS"
 
-   if(($Env:GIT_BRANCH -match 'Release*') -or ($Env:GIT_BRANCH -match 'master*')){
+   if(($Env:GIT_BRANCH -match 'Release*')){
      Write-Host 'Run The Precompiled Build With EnableUpdateable=false'
      $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
    } 
