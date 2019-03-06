@@ -8,6 +8,7 @@ trigger:
     include:
       - Feature*
       - Hotfix*
+      - Release*
     exclude:
       - master
   paths:
@@ -19,7 +20,6 @@ pr:
     include:
     - master
     - Development*
-    - Release*
 
 pool:
     name: 'Hosted VS2017'
