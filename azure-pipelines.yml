@@ -4,13 +4,6 @@
 # https://aka.ms/yaml
 
 trigger:
-  branches:
-    include:
-      - Feature*
-      - Hotfix*
-      - Release*
-    exclude:
-      - master
   paths:
     exclude:
     - README.md
@@ -20,6 +13,7 @@ pr:
     include:
     - master
     - Development*
+
 
 pool:
     name: 'Hosted VS2017'
