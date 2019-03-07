@@ -1,6 +1,11 @@
 steps:
 - powershell: |
-   if(($Env:GIT_BRANCH -match 'Release*')){
-     $Env:MS_BUILD_DEFAULT_ARGS = $Env:MS_BUILD_DEFAULT_ARGS + ";EnableUpdateable=false"
+   if(($(Build.SourceBranchName) -like 'Azure-DevOps*')){
+     $Env:BUILD_PRECOMPILE = $Env:BUILD_PRECOMPILE_ARGS
    } 
+   Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
+   $Env:BUILD_PRECOMPILE = $Env:BUILD_PRECOMPILE_ARGS
+   Write-Host "GIT_BRANCH is $env:GIT_BRANCH"
+   Write-Host "BUILD_PRECOMPILE_ARGS: $env:BUILD_PRECOMPILE_ARGS" 
+   Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
   displayName: 'Set MS Build Parameter Variables'

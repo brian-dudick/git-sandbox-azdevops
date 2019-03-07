@@ -27,10 +27,10 @@ pool:
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 variables:
-  CI_NAME: Azure Pipelines
-  GIT_BRANCH: $(Build.SourceBranchName)
-  MS_BUILD_DEFAULT_ARGS: /P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\CoConstructSite-$(Build.BuildId).zip
-  buildPlatform: 'Any CPU'
+  BUILD_PLATFORM: 'Any CPU'
+  BUILD_CONFIGURATION: 'Release'
+  BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
+  BUILD_PRECOMPILE: ''
 
 steps:
 
