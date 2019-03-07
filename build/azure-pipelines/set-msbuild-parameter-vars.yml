@@ -9,3 +9,4 @@ steps:
    Write-Host "BUILD_PRECOMPILE_ARGS: $env:BUILD_PRECOMPILE_ARGS" 
    Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
   displayName: 'Set MS Build Parameter Variables'
+  #Force
