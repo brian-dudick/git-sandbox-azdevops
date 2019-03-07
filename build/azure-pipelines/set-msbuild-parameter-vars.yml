@@ -1,8 +1,8 @@
 steps:
 - powershell: |
-   #if(($(Build.SourceBranchName) -like 'Azure-DevOps*')){
-   #  $Env:BUILD_PRECOMPILE = $Env:BUILD_PRECOMPILE_ARGS
-   #} 
+   if(("$(Build.SourceBranchName)" -like 'Azure-DevOps*')){
+     $Env:BUILD_PRECOMPILE = $Env:BUILD_PRECOMPILE_ARGS
+   } 
    Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
    $Env:BUILD_PRECOMPILE = $Env:BUILD_PRECOMPILE_ARGS
    Write-Host "BUILD_PRECOMPILE_ARGS: $env:BUILD_PRECOMPILE_ARGS" 
