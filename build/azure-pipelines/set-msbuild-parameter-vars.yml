@@ -4,20 +4,21 @@ steps:
    Write-Host "CURRENT BRANCH: $(Build.SourceBranchName)" 
    Write-Host "BUILD_PRECOMPILE_ARGS: $env:BUILD_PRECOMPILE_ARGS" 
    Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
-  displayName: 'Set MS Build Parameter Variables - Release'
+  displayName: 'Set MS Build Parameter Variables - Contains Release'
   condition: contains(variables['Build.SourceBranchName'], 'Release')
 
 - powershell: |
    Write-Host "Do This If It Is A Non-Release Build"
-  displayName: 'Set MS Build Parameter Variables - Release'
+  displayName: 'Set MS Build Parameter Variables - Not Contains Release'
   condition: not(contains(variables['Build.SourceBranchName'], 'Release'))
 
 - powershell: |
    Write-Host "Do This If It Is For Multiple Branches"
-  displayName: 'Set MS Build Parameter Variables - Multiple Branches'
+  displayName: 'Set MS Build Parameter Variables - Contains Multiple Branches'
   condition: | 
     or 
     (
+      contains(variables['Build.SourceBranchName'], 'Feature'),
       contains(variables['Build.SourceBranchName'], 'Release'),
       contains(variables['Build.SourceBranchName'], 'Development'),
       contains(variables['Build.SourceBranchName'], 'master'),
