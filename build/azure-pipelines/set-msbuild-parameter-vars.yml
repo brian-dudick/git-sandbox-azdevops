@@ -10,4 +10,9 @@ steps:
    Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
   displayName: 'Set MS Build Parameter Variables'
   condition: |
-    or(contains(variables['Build.SourceBranchName'], 'Feature-888'), contains(variables['Build.SourceBranchName'], 'Development'))
+    or
+    (
+      contains(variables['Build.SourceBranchName'], 'Feature-888'), 
+      contains(variables['Build.SourceBranchName'], 'Development'),
+      contains(variables['Build.SourceBranchName'], 'Release')
+    )
