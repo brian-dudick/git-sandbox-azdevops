@@ -15,6 +15,7 @@ steps:
   condition: | 
     or 
     (
+      contains(variables['Build.SourceBranchName'], 'Feature'),
       contains(variables['Build.SourceBranchName'], 'Release'),
       contains(variables['Build.SourceBranchName'], 'Development'),
       contains(variables['Build.SourceBranchName'], 'master'),
