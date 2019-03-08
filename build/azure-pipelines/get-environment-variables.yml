@@ -6,5 +6,3 @@ steps:
    
    echo Use the environment variables input below to pass secret variables to this script
   displayName: 'Command Line Script'
-  condition: |
-    contains(variables['Build.SourceBranchName'], 'Feature-888')

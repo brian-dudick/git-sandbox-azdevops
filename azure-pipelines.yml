@@ -38,7 +38,7 @@ steps:
 #- template: build/azure-pipelines/build.yml
 
 - template: build/azure-pipelines/get-environment-variables.yml
-#- template: build/azure-pipelines/set-msbuild-parameter-vars.yml
+- template: build/azure-pipelines/set-msbuild-parameter-vars.yml
 #- template: build/azure-pipelines/get-predefined-vars.yml
 #- template: build/azure-pipelines/build-app-01.yml
 #- template: build/azure-pipelines/find-postbuild-items.yml
