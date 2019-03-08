@@ -6,4 +6,4 @@ steps:
    
    echo Use the environment variables input below to pass secret variables to this script
   displayName: 'Command Line Script'
-  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  condition: contains(variables['Build.SourceBranch'], 'Feature*')
