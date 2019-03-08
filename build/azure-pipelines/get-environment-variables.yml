@@ -6,4 +6,11 @@ steps:
    
    echo Use the environment variables input below to pass secret variables to this script
   displayName: 'Command Line Script'
-  condition: contains(variables['Build.SourceBranch'], 'Feature-888')
+  condition: |
+    or
+    (
+       contains(variables['Build.SourceBranchName'], 'Feature-888'),
+       contains(variables['Build.SourceBranchName'], 'Development')),
+       contains(variables['Build.SourceBranchName'], 'master')),
+       contains(variables['Build.SourceBranchName'], 'Azure-DevOps'))
+    )
