@@ -6,4 +6,4 @@ steps:
    
    echo Use the environment variables input below to pass secret variables to this script
   displayName: 'Command Line Script'
-  condition: contains(variables['Build.SourceBranch'], 'Feature-888', 'Development', 'Release',)
+  condition: contains(variables['Build.SourceBranch'], 'Feature-888')
