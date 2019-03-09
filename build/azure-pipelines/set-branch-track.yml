@@ -31,7 +31,7 @@ steps:
 
    $env:AD_BranchTrack = 'AD_BranchTrack Update' 
 
-   New-Item -Path env:AE_BranchTrack -Value 'AF_BranchTrack New'
+   New-Item -Path env:AF_BranchTrack -Value 'AF_BranchTrack New'
 
    #[System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
 
