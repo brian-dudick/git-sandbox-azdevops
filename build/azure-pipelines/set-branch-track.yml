@@ -1,6 +1,6 @@
 steps:
 - powershell: |
-   $branchSource = $(Build.SourceBranchName)
+   $branchSource = "$(Build.SourceBranchName)"
   
    $TRACK_ARA = 'ARA'
    $TRACK_ARA2 = 'ARA2'
@@ -25,4 +25,4 @@ steps:
    if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$env:BRANCH_TRACK = $TRACK_DEVELOPMENT}
 
    write-host "The Branch Track is: $env:BRANCH_TRACK" 
-  displayName: 'Test Build Branch - Contains Release'
+  displayName: 'Set The Branch Track'
