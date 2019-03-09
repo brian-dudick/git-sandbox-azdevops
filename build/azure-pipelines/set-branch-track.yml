@@ -30,7 +30,7 @@ steps:
 
    $departmentId = "Fiddle Dee Dee"
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
-   #Write-Host "Set environment variable to ($env:DepartmentId)"
+   Write-Host "Set environment variable to ($env:DepartmentId)"
 
    Get-ChildItem Env:
 
