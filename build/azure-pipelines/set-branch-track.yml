@@ -1,0 +1,25 @@
+steps:
+- powershell: |
+   $branchSource = $(Build.SourceBranchName)
+   
+   $TRACK_ARA = 'ARA'
+   $TRACK_ARA2 = 'ARA2'
+   $TRACK_CORE = 'CORE'
+   $TRACK_CORE2= 'CORE2'
+   $TRACK_MOBILE = 'Mobile'
+   $TRACK_QUALITY = 'Quality'
+   $TRACK_RELEASE = 'Release'
+   $TRACK_AZDEVOPS = 'AzureDevOps'
+   $TRACK_TEST = 'Test'
+
+   if ($branchSource.ToUpper().StartsWith($TRACK_ARA)) { $BRANCH_TRACK = $TRACK_ARA}
+   if ($branchSource.ToUpper().StartsWith($TRACK_ARA2)) { $BRANCH_TRACK = $TRACK_ARA2}
+   if ($branchSource.ToUpper().StartsWith($TRACK_CORE)) { $BRANCH_TRACK = $TRACK_CORE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_CORE2)) { $BRANCH_TRACK = $TRACK_CORE2}
+   if ($branchSource.ToUpper().StartsWith($TRACK_MOBILE)) { $BRANCH_TRACK = $TRACK_MOBILE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_QUALITY)) { $BRANCH_TRACK = $TRACK_QUALITY}
+   if ($branchSource.ToUpper().StartsWith($TRACK_RELEASE)) { $BRANCH_TRACK = $TRACK_RELEASE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_AZDEVOPS)) { $BRANCH_TRACK = $TRACK_AZDEVOPS}
+
+   write-host "The Branch Track is: $BRANCH_TRACK" 
+  displayName: 'Test Build Branch - Contains Release'
