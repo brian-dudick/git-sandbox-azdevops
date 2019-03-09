@@ -25,9 +25,9 @@ steps:
 
    Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$departmentId"
 
-   [System.Environment]::SetEnvironmentVariable("AB_BranchTrack", "AA_BranchTrack Update")
+   [System.Environment]::SetEnvironmentVariable("AB_BranchTrack", "AB_BranchTrack Update")
 
-   #Set-Item -Path Env:AC_BranchTrack -Value ("AC_BranchTrack Update)
+   Set-Item -Path Env:AC_BranchTrack -Value ("AC_BranchTrack Update")
 
    #$env:AD_BranchTrack = 'Update AD_BranchTrack'
 

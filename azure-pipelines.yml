@@ -32,7 +32,11 @@ variables:
   BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
   BUILD_PRECOMPILE: ''
   BRANCH_TRACK: 'INITIAL BRANCH TRACK'
-  BranchTrack: 'Initial value'
+  AA_BranchTrack: 'AA_BranchTrack'
+  AB_BranchTrack: 'AB_BranchTrack'
+  AC_BranchTrack: 'AC_BranchTrack'
+  AD_BranchTrack: 'AD_BranchTrack'
+  AE_BranchTrack: 'AE_BranchTrack'
   BranchInfo: "Initial Value"
 
 steps:
