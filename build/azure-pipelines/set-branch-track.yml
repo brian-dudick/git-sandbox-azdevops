@@ -31,7 +31,7 @@ steps:
    $departmentId = "Fiddle Dee Dee"
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
 
-   [Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO" From Set, "User")
+   [Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO FROM SET" "User")
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
    
