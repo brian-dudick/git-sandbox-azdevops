@@ -26,6 +26,9 @@ steps:
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
 
    [Environment]::SetEnvironmentVariable("BranchInfo", "FIDDLE DEE FOO FROM SET", "User")
+
+   Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
+
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
    Get-ChildItem Env:
