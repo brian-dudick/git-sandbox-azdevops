@@ -1,5 +1,6 @@
 steps:
 - powershell: |
+
    $branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
 
    write-host "The Branch Source is: $branchSource" 
