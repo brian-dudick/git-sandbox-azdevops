@@ -34,10 +34,7 @@ steps:
    Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
 
    ### Use the variable syntax to create a new environment variable
-   $env:FirstName = 'Trevor'
-
-   ### Use the built-in env: PSDrive
-   New-Item -Path env:\LastName -Value Sullivan
+   $env:BranchTrack = 'Trevor'
 
    ### Set an environment variable using the System.Environment .NET class
    [System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
