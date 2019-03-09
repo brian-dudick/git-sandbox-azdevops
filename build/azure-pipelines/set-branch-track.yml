@@ -20,8 +20,8 @@ steps:
 
    $departmentId = "Feature-123-Default"
    $envBranchSource = $branchSource.ToUpper()
-
-   if (1 -eq 1 ) {$departmentId = $TRACK_FEATURE}
+   #
+   if (1 -eq 1) {$departmentId = $TRACK_FEATURE}
 
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
 
