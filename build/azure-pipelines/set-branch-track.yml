@@ -1,7 +1,7 @@
 steps:
 - powershell: |
    $branchSource = $(Build.SourceBranchName)
-   
+  
    $TRACK_ARA = 'ARA'
    $TRACK_ARA2 = 'ARA2'
    $TRACK_CORE = 'CORE'
@@ -11,15 +11,18 @@ steps:
    $TRACK_RELEASE = 'Release'
    $TRACK_AZDEVOPS = 'AzureDevOps'
    $TRACK_TEST = 'Test'
+   $TRACK_FEATURE = 'Feature'
+   $TRACK_DEVELOPMENT = 'Development'
 
-   if ($branchSource.ToUpper().StartsWith($TRACK_ARA)) { $BRANCH_TRACK = $TRACK_ARA}
-   if ($branchSource.ToUpper().StartsWith($TRACK_ARA2)) { $BRANCH_TRACK = $TRACK_ARA2}
-   if ($branchSource.ToUpper().StartsWith($TRACK_CORE)) { $BRANCH_TRACK = $TRACK_CORE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_CORE2)) { $BRANCH_TRACK = $TRACK_CORE2}
-   if ($branchSource.ToUpper().StartsWith($TRACK_MOBILE)) { $BRANCH_TRACK = $TRACK_MOBILE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_QUALITY)) { $BRANCH_TRACK = $TRACK_QUALITY}
-   if ($branchSource.ToUpper().StartsWith($TRACK_RELEASE)) { $BRANCH_TRACK = $TRACK_RELEASE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_AZDEVOPS)) { $BRANCH_TRACK = $TRACK_AZDEVOPS}
+   if ($branchSource.ToUpper().StartsWith($TRACK_ARA)) {$env:BRANCH_TRACK = $TRACK_ARA}
+   if ($branchSource.ToUpper().StartsWith($TRACK_ARA2)) {$env:BRANCH_TRACK = $TRACK_ARA2}
+   if ($branchSource.ToUpper().StartsWith($TRACK_CORE)) {$env:BRANCH_TRACK = $TRACK_CORE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_CORE2)) {$env:BRANCH_TRACK = $TRACK_CORE2}
+   if ($branchSource.ToUpper().StartsWith($TRACK_MOBILE)) {$env:BRANCH_TRACK = $TRACK_MOBILE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_QUALITY)) {$env:BRANCH_TRACK = $TRACK_QUALITY}
+   if ($branchSource.ToUpper().StartsWith($TRACK_RELEASE)) {$env:BRANCH_TRACK = $TRACK_RELEASE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_FEATURE)) {$env:BRANCH_TRACK = $TRACK_FEATURE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$env:BRANCH_TRACK = $TRACK_DEVELOPMENT}
 
-   write-host "The Branch Track is: $BRANCH_TRACK" 
+   write-host "The Branch Track is: $env:BRANCH_TRACK" 
   displayName: 'Test Build Branch - Contains Release'
