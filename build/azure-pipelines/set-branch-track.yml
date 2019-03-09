@@ -28,5 +28,7 @@ steps:
    if ($branchSource.ToUpper().StartsWith($TRACK_FEATURE)) {$(BRANCH_TRACK) = $TRACK_FEATURE}
    if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$(BRANCH_TRACK) = $TRACK_DEVELOPMENT}
 
+   $(BRANCH_TRACK) = "Fiddle Dee Foo"
+  
    write-host "The Branch Track is: $(BRANCH_TRACK)" 
   displayName: 'Set The Branch Track'
