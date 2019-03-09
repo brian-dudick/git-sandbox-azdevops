@@ -29,6 +29,8 @@ steps:
 
    New-Item -Path env:\LastName -Value Sullivan
 
+   [System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
+
    Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
 
    Write-Host "Set environment variable to ($env:DepartmentId)"
