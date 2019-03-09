@@ -23,20 +23,24 @@ steps:
    #
    if (1 -eq 1) {$departmentId = $TRACK_FEATURE}
 
-   Write-Host "##vso[task.setvariable variable=BranchTrack;]$departmentId"
+   Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$departmentId"
 
-   [System.Environment]::SetEnvironmentVariable("BRANCH_INFO", "FIDDLE DEE FOO FROM SET")
+   [System.Environment]::SetEnvironmentVariable("AB_BranchTrack", "AA_BranchTrack Update")
 
-   New-Item -Path env:LastName -Value Sullivan
+   Set-Item -Path Env:AC_BranchTrack -Value ("AC_BranchTrack Update)
 
-   [System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
+   $env:AD_BranchTrack = 'Update AD_BranchTrack'
 
-   Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
+   New-Item -Path env:AE_BranchTrack -Value 'AE_BranchTrack New'
+
+   #[System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
+
+   #Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
 
    ### Use the variable syntax to create a new environment variable
-   $env:BranchTrack = 'Trevor'
+   #$env:BranchTrack = 'Trevor'
 
    ### Set an environment variable using the System.Environment .NET class
-   [System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
+   #[System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
 
   displayName: 'Set The Branch Track'
