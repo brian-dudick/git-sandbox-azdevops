@@ -1,0 +1,7 @@
+steps:
+- task: PowerShell@2
+  displayName: 'PowerShell Script'
+  inputs:
+    targetType: filePath
+    filePath: './build/azure-pipelines/set-environmental-variables.ps1'
+    arguments: '$(build.buildbranchname)'
