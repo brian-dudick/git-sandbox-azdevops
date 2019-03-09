@@ -34,7 +34,6 @@ steps:
    [Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO FROM SET", "User")
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
-   
 
    #Get-ChildItem Env:
 
