@@ -5,7 +5,6 @@ steps:
    write-host "The Branch Source is: $branchSource" 
 
    write-host "Branch Track 1: $(BRANCH_TRACK)"
-   write-host "Branch Track 2: $(env:BRANCH_TRACK)"
   
    $TRACK_ARA = 'ARA'
    $TRACK_ARA2 = 'ARA2'
