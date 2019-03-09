@@ -31,7 +31,7 @@ variables:
   BUILD_CONFIGURATION: 'Release'
   BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
   BUILD_PRECOMPILE: ''
-  BRANCH_TRACK: ''
+  BRANCH_TRACK: 'INITIAL BRANCH TRACK'
 
 steps:
 
