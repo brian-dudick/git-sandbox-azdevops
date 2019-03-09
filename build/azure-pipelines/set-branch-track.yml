@@ -30,11 +30,15 @@ steps:
 
    $departmentId = "Fiddle Dee Dee"
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
+
+   [Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO" From Set, "User")
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
-   Get-ChildItem Env:
+   
 
-   Write-Host "Department Id ($departmentId)"
+   #Get-ChildItem Env:
+
+   #Write-Host "Department Id ($departmentId)"
   
    write-host "The Branch Track is: $(BRANCH_TRACK)" 
   displayName: 'Set The Branch Track'
