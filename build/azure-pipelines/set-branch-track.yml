@@ -1,6 +1,8 @@
 steps:
 - powershell: |
    $branchSource = "$(Build.SourceBranchName)"
+
+   write-host "The Branch Source is: $branchSource" 
   
    $TRACK_ARA = 'ARA'
    $TRACK_ARA2 = 'ARA2'
