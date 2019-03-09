@@ -18,26 +18,25 @@ steps:
    $TRACK_FEATURE = 'Feature'
    $TRACK_DEVELOPMENT = 'Development'
 
-   if ($branchSource.ToUpper().StartsWith($TRACK_ARA)) {$(BRANCH_TRACK)= $TRACK_ARA}
-   if ($branchSource.ToUpper().StartsWith($TRACK_ARA2)) {$(BRANCH_TRACK) = $TRACK_ARA2}
-   if ($branchSource.ToUpper().StartsWith($TRACK_CORE)) {$(BRANCH_TRACK)= $TRACK_CORE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_CORE2)) {$(BRANCH_TRACK) = $TRACK_CORE2}
-   if ($branchSource.ToUpper().StartsWith($TRACK_MOBILE)) {$(BRANCH_TRACK) = $TRACK_MOBILE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_QUALITY)) {$(BRANCH_TRACK) = $TRACK_QUALITY}
-   if ($branchSource.ToUpper().StartsWith($TRACK_RELEASE)) {$(BRANCH_TRACK) = $TRACK_RELEASE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_FEATURE)) {$(BRANCH_TRACK) = $TRACK_FEATURE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$(BRANCH_TRACK) = $TRACK_DEVELOPMENT}
+   $departmentId = "Feature-123-Default"
 
-   $departmentId = "ARA2"
+   if ($branchSource.ToUpper().StartsWith($TRACK_ARA)) {$departmentId = $TRACK_ARA}
+   if ($branchSource.ToUpper().StartsWith($TRACK_ARA2)) {$departmentId = $TRACK_ARA2}
+   if ($branchSource.ToUpper().StartsWith($TRACK_CORE)) {$departmentId= $TRACK_CORE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_CORE2)) {$departmentId = $TRACK_CORE2}
+   if ($branchSource.ToUpper().StartsWith($TRACK_MOBILE)) {$departmentId = $TRACK_MOBILE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_QUALITY)) {$departmentId = $TRACK_QUALITY}
+   if ($branchSource.ToUpper().StartsWith($TRACK_RELEASE)) {$departmentId = $TRACK_RELEASE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_FEATURE)) {$departmentId = $TRACK_FEATURE}
+   if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$departmentId = $TRACK_DEVELOPMENT}
+
+
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
 
    #[Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO FROM SET", "User")
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
-
-   #Get-ChildItem Env:
-
-   #Write-Host "Department Id ($departmentId)"
+   Get-ChildItem Env:
   
    write-host "The Branch Track is: $(BRANCH_TRACK)" 
   displayName: 'Set The Branch Track'
