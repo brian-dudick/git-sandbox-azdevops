@@ -32,7 +32,7 @@ variables:
   BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
   BUILD_PRECOMPILE: ''
   BRANCH_TRACK: 'INITIAL BRANCH TRACK'
-  DepartmentId: 'Initial value'
+  BranchTrack: 'Initial value'
   BranchInfo: "Initial Value"
 
 steps:

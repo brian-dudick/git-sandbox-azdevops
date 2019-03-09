@@ -27,6 +27,8 @@ steps:
 
    [Environment]::SetEnvironmentVariable("BranchInfo", "FIDDLE DEE FOO FROM SET", "User")
 
+   New-Item -Path env:\LastName -Value Sullivan
+
    Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
 
    Write-Host "Set environment variable to ($env:DepartmentId)"
