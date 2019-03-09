@@ -43,7 +43,7 @@ variables:
 
 steps:
 
-
+#force
 - powershell: ./setEnvironmentVariables.ps1 "item1" "item2"
 #- template: build/azure-pipelines/build.yml
 - template: build/azure-pipelines/get-predefined-vars.yml
