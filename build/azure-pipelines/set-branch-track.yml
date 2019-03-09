@@ -1,6 +1,6 @@
 steps:
 - powershell: |
-   $branchSource = "$(Build.SourceBranchName)"
+   $branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
 
    write-host "The Branch Source is: $branchSource" 
 
@@ -19,16 +19,9 @@ steps:
    $TRACK_DEVELOPMENT = 'Development'
 
    $departmentId = "Feature-123-Default"
+   $envBranchSource = $branchSource.ToUpper()
 
-   if ($branchSource.ToUpper().StartsWith($TRACK_ARA)) {$departmentId = $TRACK_ARA}
-   if ($branchSource.ToUpper().StartsWith($TRACK_ARA2)) {$departmentId = $TRACK_ARA2}
-   if ($branchSource.ToUpper().StartsWith($TRACK_CORE)) {$departmentId= $TRACK_CORE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_CORE2)) {$departmentId = $TRACK_CORE2}
-   if ($branchSource.ToUpper().StartsWith($TRACK_MOBILE)) {$departmentId = $TRACK_MOBILE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_QUALITY)) {$departmentId = $TRACK_QUALITY}
-   if ($branchSource.ToUpper().StartsWith($TRACK_RELEASE)) {$departmentId = $TRACK_RELEASE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_FEATURE)) {$departmentId = $TRACK_FEATURE}
-   if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$departmentId = $TRACK_DEVELOPMENT}
+   if ($branchSource.ToUpper() -like $TRACK_FEATURE ) {$departmentId = $TRACK_FEATURE}
 
 
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
