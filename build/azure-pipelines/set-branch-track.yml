@@ -23,7 +23,7 @@ steps:
    #
    if (1 -eq 1) {$departmentId = $TRACK_FEATURE}
 
-   Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
+   Write-Host "##vso[task.setvariable variable=BranchTrack;]$departmentId"
 
    [Environment]::SetEnvironmentVariable("BranchInfo", "FIDDLE DEE FOO FROM SET", "User")
 
