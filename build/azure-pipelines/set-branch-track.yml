@@ -28,10 +28,10 @@ steps:
    if ($branchSource.ToUpper().StartsWith($TRACK_FEATURE)) {$(BRANCH_TRACK) = $TRACK_FEATURE}
    if ($branchSource.ToUpper().StartsWith($TRACK_DEVELOPMENT )) {$(BRANCH_TRACK) = $TRACK_DEVELOPMENT}
 
-   $departmentId = "Fiddle Dee Dee"
+   $departmentId = "ARA2"
    Write-Host "##vso[task.setvariable variable=DepartmentId;]$departmentId"
 
-   [Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO FROM SET", "User")
+   #[Environment]::SetEnvironmentVariable("DepartmentId", "FIDDLE DEE FOO FROM SET", "User")
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
 
