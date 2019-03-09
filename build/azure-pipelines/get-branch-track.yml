@@ -1,0 +1,10 @@
+steps:
+- powershell: |
+   $branchSource = "$(Build.SourceBranchName)"
+
+   write-host "The Branch Source is: $branchSource" 
+
+   Write-Host "Using Department: $($env:Write-Host "Using Department: $($env:DepartmentId)")"
+  
+   write-host "The Branch Track is: $(BRANCH_TRACK)" 
+  displayName: 'Set The Branch Track'
