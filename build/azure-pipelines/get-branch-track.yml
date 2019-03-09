@@ -7,4 +7,6 @@ steps:
    Write-Host "Using Department: $($env:DepartmentId)"
   
    write-host "The Branch Track is: $(BRANCH_TRACK)" 
+
+   Get-ChildItem Env:
   displayName: 'Get The Branch Track'
