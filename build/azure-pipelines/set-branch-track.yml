@@ -32,3 +32,5 @@ steps:
    Write-Host "Set environment variable to ($env:DepartmentId)"
 
   displayName: 'Set The Branch Track'
+
+  #force
