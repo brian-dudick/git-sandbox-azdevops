@@ -1,12 +1,23 @@
 steps:
 - powershell: |
-   if(("$(Build.SourceBranchName)" -like 'Development*')){
-     Write-Host "PRE-UPDATE BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE"
-     $Env:BUILD_PRECOMPILE = $Env:BUILD_PRECOMPILE_ARGS
-     Write-Host "PSOT-UPDATE BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE"
-   } 
-   Write-Host "CURRENT BRANCH: $(Build.SourceBranchName)" 
-   Write-Host "BUILD_PRECOMPILE_ARGS: $env:BUILD_PRECOMPILE_ARGS" 
-   Write-Host "BUILD_PRECOMPILE: $env:BUILD_PRECOMPILE" 
-  displayName: 'Set MS Build Parameter Variables'
-  #Force
+   Write-Host "This Is A Relase Build"
+  displayName: 'Test Build Branch - Contains Release'
+  condition: contains(variables['Build.SourceBranchName'], 'Release')
+
+- powershell: |
+   Write-Host "This Is A Non-Release Build"
+  displayName: 'Test Build Branch - Not Contains Release'
+  condition: not(contains(variables['Build.SourceBranchName'], 'Release'))
+
+- powershell: |
+   Write-Host "Do This If It Is For Multiple Branches"
+  displayName: 'Test Build Branch - Contains Multiple Branches'
+  condition: | 
+    or 
+    (
+      contains(variables['Build.SourceBranchName'], 'Feature'),
+      contains(variables['Build.SourceBranchName'], 'Release'),
+      contains(variables['Build.SourceBranchName'], 'Development'),
+      contains(variables['Build.SourceBranchName'], 'master'),
+      contains(variables['Build.SourceBranchName'], 'Azure-DevOps')
+    )

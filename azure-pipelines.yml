@@ -31,13 +31,29 @@ variables:
   BUILD_CONFIGURATION: 'Release'
   BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
   BUILD_PRECOMPILE: ''
+  BRANCH_TRACK: 'INITIAL BRANCH TRACK'
+  AA_BranchTrack: 'AA_BranchTrack'
+  AB_BranchTrack: 'AB_BranchTrack'
+  AC_BranchTrack: 'AC_BranchTrack'
+  AD_BranchTrack: 'AD_BranchTrack'
+  AE_BranchTrack: 'AE_BranchTrack'
+  BranchInfo: "Initial Value"
+  #SAUCE_USERNAME: "INIT"
+  SAUCE_USER_KEY: "INIT"
+  sauce.userName: "init on main"
 
 steps:
 
-
+#force
+- powershell: ./setEnvironmentVariables.ps1 $env:SAUCE_USERNAME $env:SAUCE_USER_KEY
 #- template: build/azure-pipelines/build.yml
-- template: build/azure-pipelines/set-msbuild-parameter-vars.yml
 - template: build/azure-pipelines/get-predefined-vars.yml
+- template: build/azure-pipelines/set-branch-track.yml
+- template: build/azure-pipelines/get-branch-track.yml
+#- template: build/azure-pipelines/test-environment.yml
+#- template: build/azure-pipelines/set-branch-track.yml
+#- template: build/azure-pipelines/set-msbuild-parameter-vars.yml
+
 #- template: build/azure-pipelines/build-app-01.yml
 #- template: build/azure-pipelines/find-postbuild-items.yml
 
