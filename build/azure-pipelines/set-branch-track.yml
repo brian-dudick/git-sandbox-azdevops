@@ -2,8 +2,7 @@ steps:
 - powershell: |
 
    $branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
-   $branchTrack = "Feature-ZZZ"
-
+   
    write-host "The Branch Source is: $branchSource" 
   
    $TRACK_ARA = 'ARA'
@@ -17,10 +16,17 @@ steps:
    $TRACK_TEST = 'Test'
    $TRACK_FEATURE = 'Feature'
    $TRACK_DEVELOPMENT = 'Development'
-
-   $departmentId = "Feature-888"
    #
-   if ($branchSource -eq $branchTrack) {$branchTrack = $TRACK_FEATURE}
+   if ($branchSource -match $TRACK_ARA ) {$branchTrack = $TRACK_ARA}
+   if ($branchSource -match $TRACK_ARA ) {$branchTrack = $TRACK_ARA2}
+   if ($branchSource -match $TRACK_CORE) {$branchTrack = $TRACK_CORE}
+   if ($branchSource -match $TRACK_CORE2) {$branchTrack = $TRACK_CORE2}
+   if ($branchSource -match $TRACK_MOBILE) {$branchTrack = $TRACK_MOBILE}
+   if ($branchSource -match $TRACK_QUALITY) {$branchTrack = $TRACK_QUALITY}
+   if ($branchSource -match $TRACK_AZDEVOPS) {$branchTrack = $TRACK_AZDEVOPS}
+   if ($branchSource -match $TRACK_TEST) {$branchTrack = $TRACK_TEST}
+   if ($branchSource -match $TRACK_FEATURE) {$branchTrack = $TRACK_FEATURE}
+   if ($branchSource -match $TRACK_DEVELOPMENT) {$branchTrack = $TRACK_DEVELOPMENT}
 
    Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$branchTrack"
 
