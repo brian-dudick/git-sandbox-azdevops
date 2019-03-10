@@ -3,7 +3,7 @@ Param(
     [string]$branchSource
     )
     #$branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
-     
+   $branchTrack = 'Feature'
    #
    if ($branchSource.ToUpper() -match 'ARA-') {
        $branchTrack = 'ARA'
