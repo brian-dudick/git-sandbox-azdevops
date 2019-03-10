@@ -1,10 +1,8 @@
 steps:
 - powershell: |
-   $branchSource = "$(Build.SourceBranchName)"
 
-   write-host "The Branch Source is: $branchSource" 
-
-   Write-Host "Using Department: $($env:BranchTrack)"
-
-   Get-ChildItem Env:
+   Write-Host "AA_BranchTrack: $($env:AA_BranchTrack)"
+   Write-Host "AB_BranchTrack: $($env:AB_BranchTrack)"
+   
+   #Get-ChildItem Env:
   displayName: 'Get The Branch Track'
