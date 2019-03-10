@@ -7,3 +7,5 @@ Write-Host "sauce.accessKey that was passed in from Azure DevOps=>$sauceAccessKe
 
 [Environment]::SetEnvironmentVariable("SAUCE_USERNAME", "ABC1234")
 [Environment]::SetEnvironmentVariable("SAUCE_ACCESS_KEY", "$sauceAccessKey")
+
+Get-ChildItem Env:
