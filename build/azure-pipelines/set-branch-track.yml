@@ -26,5 +26,12 @@ steps:
 
    Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$departmentId"
 
+   New-Item -Path env:\LastName -Value Sullivan
+
   displayName: 'Set The Branch Track'
+
+- powershell: |
+   New-Item -Path env:\FirstName -Value Pat
+   Get-ChildItem Env:
+  displayName: 'Get The Branch Track'
 
