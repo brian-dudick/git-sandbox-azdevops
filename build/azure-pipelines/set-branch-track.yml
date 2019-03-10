@@ -3,28 +3,19 @@ steps:
 
    $branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
      
-   $TRACK_ARA = 'ARA'
-   $TRACK_ARA2 = 'ARA2'
-   $TRACK_CORE = 'CORE'
-   $TRACK_CORE2= 'CORE2'
-   $TRACK_MOBILE = 'Mobile'
-   $TRACK_QUALITY = 'Quality'
-   $TRACK_RELEASE = 'Release'
-   $TRACK_AZDEVOPS = 'AzureDevOps'
-   $TRACK_TEST = 'Test'
-   $TRACK_FEATURE = 'Feature'
-   $TRACK_DEVELOPMENT = 'Development'
    #
-   if ($branchSource -match $TRACK_ARA) {$branchTrack = $TRACK_ARA}
-   if ($branchSource -match $TRACK_ARA) {$branchTrack = $TRACK_ARA2}
-   if ($branchSource -match $TRACK_CORE) {$branchTrack = $TRACK_CORE}
-   if ($branchSource -match $TRACK_CORE2) {$branchTrack = $TRACK_CORE2}
-   if ($branchSource -match $TRACK_MOBILE) {$branchTrack = $TRACK_MOBILE}
-   if ($branchSource -match $TRACK_QUALITY) {$branchTrack = $TRACK_QUALITY}
-   if ($branchSource -match $TRACK_AZDEVOPS) {$branchTrack = $TRACK_AZDEVOPS}
-   if ($branchSource -match $TRACK_TEST) {$branchTrack = $TRACK_TEST}
-   if ($branchSource -match $TRACK_FEATURE) {$branchTrack = $TRACK_FEATURE}
-   if ($branchSource -match $TRACK_DEVELOPMENT) {$branchTrack = $TRACK_DEVELOPMENT}
+   if ($branchSource -match 'ARA-') {$branchTrack = 'ARA'}
+   if ($branchSource -match 'ARA2-') {$branchTrack = 'ARA2'}
+   if ($branchSource -match 'CORE-') {$branchTrack = 'Core'}
+   if ($branchSource -match 'CORE2-') {$branchTrack = 'Core2'}
+   if ($branchSource -match 'MOBILE-') {$branchTrack = 'Mobile'}
+   if ($branchSource -match 'QUALITY-') {$branchTrack = 'Quality'}
+   if ($branchSource -match 'AZURE-DEVOPS-') {$branchTrack = 'Azure-DevOps'}
+   if ($branchSource -match 'TEST-') {$branchTrack = 'Test'}
+   if ($branchSource -match 'FEATURE-') {$branchTrack = 'Feature'}
+   if ($branchSource -match 'RELAEASE-') {$branchTrack = 'Release'}
+   if ($branchSource -match 'ARCHITECTURE-' {$branchTrack = 'Architecture'}
+   if ($branchSource -match 'DEVELOPMENT' {$branchTrack = 'Development'}
 
    Write-Host "##vso[task.setvariable variable=COCON_BRANCH_TRACK;]$branchTrack"
 

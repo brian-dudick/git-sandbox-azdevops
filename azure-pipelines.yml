@@ -41,7 +41,15 @@ steps:
 - powershell: ./setEnvironmentVariables.ps1 $env:SAUCE_USERNAME $env:SAUCE_USER_KEY
 #- template: build/azure-pipelines/build.yml
 - template: build/azure-pipelines/get-predefined-vars.yml
-- template: build/azure-pipelines/set-branch-track.yml
+#- template: build/azure-pipelines/set-branch-track.yml
+#
+- task: PowerShell@2
+  displayName: 'Set The Branch Track'
+  inputs:
+    targetType: filePath
+    filePath: './build/azure-pipelines/set-branch-track.ps1'
+    arguments: '$(Build.SourceBranchName)'
+#
 - template: build/azure-pipelines/get-branch-track.yml
 #- template: build/azure-pipelines/test-environment.yml
 #- template: build/azure-pipelines/set-branch-track.yml
