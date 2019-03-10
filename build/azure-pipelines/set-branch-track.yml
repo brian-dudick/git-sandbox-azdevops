@@ -26,22 +26,9 @@ steps:
 
    Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$departmentId"
 
-   [System.Environment]::SetEnvironmentVariable("AB_BranchTrack", "AB_BranchTrack Update")
-
-   Set-Item -Path Env:AC_BranchTrack -Value ("AC_BranchTrack Update")
-
-   $env:AD_BranchTrack = 'AD_BranchTrack Update' 
-
-   New-Item -Path env:AF_BranchTrack -Value 'AF_BranchTrack New'
-
-   #[System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
-
-   #Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
-
-   ### Use the variable syntax to create a new environment variable
-   #$env:BranchTrack = 'Trevor'
-
-   ### Set an environment variable using the System.Environment .NET class
-   #[System.Environment]::SetEnvironmentVariable('DOCKER_HOST', 'docker.artofshell.com')
+   [Environment]::SetEnvironmentVariable("BranchInfo", "FIDDLE DEE FOO FROM SET", "User")
+   New-Item -Path env:\LastName -Value Sullivan
+   Set-Item -Path Env:BranchInfo -Value ("Update via Set-Item")
+   Write-Host "Set environment variable to ($env:DepartmentId)"
 
   displayName: 'Set The Branch Track'
