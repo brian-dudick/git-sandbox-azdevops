@@ -2,10 +2,9 @@ steps:
 - powershell: |
 
    $branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
+   $branchTrack = "Feature-ZZZ"
 
    write-host "The Branch Source is: $branchSource" 
-
-   write-host "Branch Track 1: $(BRANCH_TRACK)"
   
    $TRACK_ARA = 'ARA'
    $TRACK_ARA2 = 'ARA2'
@@ -19,19 +18,11 @@ steps:
    $TRACK_FEATURE = 'Feature'
    $TRACK_DEVELOPMENT = 'Development'
 
-   $departmentId = "Feature-123-Default"
-   $envBranchSource = $branchSource.ToUpper()
+   $departmentId = "Feature-888"
    #
-   if (1 -eq 1) {$departmentId = $TRACK_FEATURE}
+   if ($branchSource -eq $branchTrack) {$branchTrack = $TRACK_FEATURE}
 
-   Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$departmentId"
-
-   New-Item -Path env:\LastName -Value Sullivan
+   Write-Host "##vso[task.setvariable variable=AA_BranchTrack;]$branchTrack"
 
   displayName: 'Set The Branch Track'
-
-- powershell: |
-   New-Item -Path env:\FirstName -Value Pat
-   Get-ChildItem Env:
-  displayName: 'Get The Branch Track'
 
