@@ -32,15 +32,8 @@ variables:
   BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
   BUILD_PRECOMPILE: ''
   BRANCH_TRACK: 'INITIAL BRANCH TRACK'
-  AA_BranchTrack: 'AA_BranchTrack'
-  AB_BranchTrack: 'AB_BranchTrack'
-  AC_BranchTrack: 'AC_BranchTrack'
-  AD_BranchTrack: 'AD_BranchTrack'
-  AE_BranchTrack: 'AE_BranchTrack'
-  BranchInfo: "Initial Value"
-  #SAUCE_USERNAME: "INIT"
-  SAUCE_USER_KEY: "INIT"
-  sauce.userName: "init on main"
+  COCON_BRANCH_TRACK: 'DEFAULT'
+
 
 steps:
 

@@ -1,9 +1,7 @@
 steps:
 - powershell: |
 
-   Write-Host "AA_BranchTrack: $($env:AA_BranchTrack)"
-   Write-Host "AB_BranchTrack: $($env:AB_BranchTrack)"
-   Write-Host "SAUCE_USERNAME: $($env:SAUCE_USERNAME)"
+   Write-Host "COCON_BRANCH_TRACK: $($env:COCON_BRANCH_TRACK)"
 
    #Get-ChildItem Env:
   displayName: 'Get The Branch Track'
