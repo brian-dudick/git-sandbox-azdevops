@@ -3,6 +3,7 @@ steps:
 
    Write-Host "AA_BranchTrack: $($env:AA_BranchTrack)"
    Write-Host "AB_BranchTrack: $($env:AB_BranchTrack)"
-   
+   Write-Host "SAUCE_USERNAME: $($env:SAUCE_USERNAME)"
+
    #Get-ChildItem Env:
   displayName: 'Get The Branch Track'
