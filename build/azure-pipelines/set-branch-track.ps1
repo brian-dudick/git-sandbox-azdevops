@@ -3,9 +3,18 @@ Param(
     [string]$branchSource
     )
     #$branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
+
+   write-host $branchSource
+
    $branchTrack = 'Feature'
    #
-   if ($branchSource.ToUpper() -match 'ARA-') {
+   if ($branchSource.ToUpper() -match 'Aztec-') {
+    $branchTrack = 'Aztec'
+   }
+   elseif ($branchSource.ToUpper() -match 'Bahubali-') {
+    $branchTrack = 'Bahubali'
+   }
+   elseif ($branchSource.ToUpper() -match 'ARA-') {
        $branchTrack = 'ARA'
    }
    elseif ($branchSource.ToUpper() -match 'ARA2-') {
