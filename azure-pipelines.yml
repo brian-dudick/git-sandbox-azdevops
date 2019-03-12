@@ -57,7 +57,7 @@ steps:
 #- template: build/azure-pipelines/publish-artifacts.yml
 
 - task: GithubRelease@0 
-  displayName: 'Create GitHub Release'      
+  displayName: format('This is a relase for {0} {1}', 'John', 'Doe')    
   inputs:
     githubConnection: GitHub-PAT
     repositoryName: brian-dudick/git-sandbox-azdevops
