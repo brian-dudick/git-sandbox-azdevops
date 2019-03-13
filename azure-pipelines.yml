@@ -28,41 +28,10 @@ name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)
 
 variables:
   CI_NAME: Azure Pipelines
-  GIT_BRANCH: $(Build.SourceBranchName)
-  MS_BUILD_DEFAULT_ARGS: /P:Configuration=Release;DeployOnBuild=true;PackageLocation="$(Build.ArtifactStagingDirectory)\CoConstructSite-$(Build.BuildId).zip
   buildPlatform: 'Any CPU'
 
 steps:
 #- template: build/azure-pipelines/build.yml
 
 - template: build/azure-pipelines/get-predefined-vars.yml
-- template: build/azure-pipelines/build-app-01.yml
-- template: build/azure-pipelines/find-postbuild-items.yml
-#force
-#1) Rebuild Co-Construct Site Solution
-#- template: build/azure-pipelines/rebuild-cocon-solution.yml
 
-#2) Build Main Site Project
-#- template: build/azure-pipelines/build-mainsite-project.yml
-
-#3) BUild Mobile API Project
-
-# 4) Build File Server Project
-
-#5) Copy EmailProcessor
-
-#6) Copy TaskProcessor
-
-#7) Publish Artifacts
-#- template: build/azure-pipelines/publish-artifacts.yml
-
-- task: GithubRelease@0 
-  displayName: format("'—package '{0}}:0.0.{1}}'", 'CoCon - Copy Deploy Package to Target', $(Build.BuildNumber))    
-  inputs:
-    githubConnection: GitHub-PAT
-    repositoryName: brian-dudick/git-sandbox-azdevops
-    tagSource: manual
-    tag: $(Build.BuildNumber)      
-    #assets: |
-    #     $(Build.ArtifactStagingDirectory)/*.exe
-    #     $(Build.ArtifactStagingDirectory)/README.txt
