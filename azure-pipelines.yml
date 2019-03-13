@@ -50,7 +50,7 @@ steps:
     arguments: '$(Build.SourceBranchName)'
 #
 
-- template: build/azure-pipelines/create-release-notes.yml
+#- template: build/azure-pipelines/create-release-notes.yml
 
 - template: build/azure-pipelines/get-branch-track.yml
 #- template: build/azure-pipelines/test-environment.yml
