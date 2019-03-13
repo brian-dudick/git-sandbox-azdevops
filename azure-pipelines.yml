@@ -57,7 +57,7 @@ steps:
 #- template: build/azure-pipelines/publish-artifacts.yml
 
 - task: GithubRelease@0 
-  displayName: 'Create GitHub Release'      
+  displayName: format("'—package '{0}}:0.0.{1}}'", 'CoCon - Copy Deploy Package to Target', $(Build.BuildNumber))    
   inputs:
     githubConnection: GitHub-PAT
     repositoryName: brian-dudick/git-sandbox-azdevops
