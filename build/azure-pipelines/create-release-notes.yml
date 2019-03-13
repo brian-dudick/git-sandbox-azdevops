@@ -1,0 +1,7 @@
+steps:
+- task: PowerShell@2
+  displayName: 'Create Release Notes'
+  inputs:
+    targetType: filePath
+    filePath: './azure-pipelines/build/create-release-notes.ps1'
+    arguments: -buildSourceBranchName $(Build.SourceBranchName)' -buildSourceVersionMessage '$(Build.SourceVersionMessage)' -buildSourceVersionMessage '$(Build.SourceVersion)' -buildDefinitionName '$(Build.DefinitionName)' -buildNumber '$(Build.BuildNumber)'
