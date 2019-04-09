@@ -6,7 +6,7 @@
 trigger:
   branches:
     include:
-      - refs/heads/*
+      - refs/heads/Development-WIP
   paths:
     exclude:
     - README.md
@@ -21,7 +21,7 @@ pr:
 
 pool:
     name: 'Hosted VS2017'
-    vmImage: vs2017-win2016
+    vmImage: 'vs2017-win2016'
     demands: MSBuild
 
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
@@ -76,14 +76,3 @@ steps:
 
 #7) Publish Artifacts
 #- template: build/azure-pipelines/publish-artifacts.yml
-
-- task: GithubRelease@0 
-  displayName: 'Create GitHub Release'      
-  inputs:
-    githubConnection: GitHub-PAT
-    repositoryName: brian-dudick/git-sandbox-azdevops
-    tagSource: manual
-    tag: $(Build.BuildNumber)      
-    #assets: |
-    #     $(Build.ArtifactStagingDirectory)/*.exe
-    #     $(Build.ArtifactStagingDirectory)/README.txt
