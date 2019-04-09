@@ -34,7 +34,6 @@ variables:
   BRANCH_TRACK: 'INITIAL BRANCH TRACK'
   COCON_BRANCH_TRACK: 'DEFAULT'
 
-
 steps:
 
 #force
