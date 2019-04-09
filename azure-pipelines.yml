@@ -34,7 +34,6 @@ variables:
   BRANCH_TRACK: 'INITIAL BRANCH TRACK'
   COCON_BRANCH_TRACK: 'DEFAULT'
 
-
 steps:
 
 #force
@@ -76,3 +75,4 @@ steps:
 
 #7) Publish Artifacts
 #- template: build/azure-pipelines/publish-artifacts.yml
+
