@@ -6,7 +6,7 @@
 trigger:
   branches:
     include:
-      - refs/heads/Development-WIP
+      - refs/heads/Development-*
   paths:
     exclude:
     - README.md
