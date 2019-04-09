@@ -6,7 +6,7 @@
 trigger:
   branches:
     include:
-      - refs/heads/*
+      - refs/heads/Development-WIP
   paths:
     exclude:
     - README.md
@@ -21,17 +21,58 @@ pr:
 
 pool:
     name: 'Hosted VS2017'
-    vmImage: vs2017-win2016
+    vmImage: 'vs2017-win2016'
     demands: MSBuild
 
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 variables:
-  CI_NAME: Azure Pipelines
-  buildPlatform: 'Any CPU'
+  BUILD_PLATFORM: 'Any CPU'
+  BUILD_CONFIGURATION: 'Release'
+  BUILD_PRECOMPILE_ARGS: 'EnableUpdateable=false;'
+  BUILD_PRECOMPILE: ''
+  BRANCH_TRACK: 'INITIAL BRANCH TRACK'
+  COCON_BRANCH_TRACK: 'DEFAULT'
+
 
 steps:
+
+#force
 #- template: build/azure-pipelines/build.yml
-
 - template: build/azure-pipelines/get-predefined-vars.yml
+#- template: build/azure-pipelines/set-branch-track.yml
+#
+- task: PowerShell@2
+  displayName: 'Set The Branch Track'
+  inputs:
+    targetType: filePath
+    filePath: './build/azure-pipelines/set-branch-track.ps1'
+    arguments: '$(Build.SourceBranchName)'
+#
 
+#- template: build/azure-pipelines/create-release-notes.yml
+
+- template: build/azure-pipelines/get-branch-track.yml
+#- template: build/azure-pipelines/test-environment.yml
+#- template: build/azure-pipelines/set-branch-track.yml
+#- template: build/azure-pipelines/set-msbuild-parameter-vars.yml
+
+#- template: build/azure-pipelines/build-app-01.yml
+#- template: build/azure-pipelines/find-postbuild-items.yml
+
+#1) Rebuild Co-Construct Site Solution
+#- template: build/azure-pipelines/rebuild-cocon-solution.yml
+
+#2) Build Main Site Project
+#- template: build/azure-pipelines/build-mainsite-project.yml
+
+#3) BUild Mobile API Project
+
+# 4) Build File Server Project
+
+#5) Copy EmailProcessor
+
+#6) Copy TaskProcessor
+
+#7) Publish Artifacts
+#- template: build/azure-pipelines/publish-artifacts.yml
