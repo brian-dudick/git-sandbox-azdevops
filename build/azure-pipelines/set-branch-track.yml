@@ -1,0 +1,23 @@
+steps:
+- powershell: |
+
+   $branchSource = ("$(Build.SourceBranchName)").ToString().ToUpper()
+     
+   #
+   if ($branchSource -match 'ARA-') {$branchTrack = 'ARA'}
+   if ($branchSource -match 'ARA2-') {$branchTrack = 'ARA2'}
+   if ($branchSource -match 'CORE-') {$branchTrack = 'Core'}
+   if ($branchSource -match 'CORE2-') {$branchTrack = 'Core2'}
+   if ($branchSource -match 'MOBILE-') {$branchTrack = 'Mobile'}
+   if ($branchSource -match 'QUALITY-') {$branchTrack = 'Quality'}
+   if ($branchSource -match 'AZURE-DEVOPS-') {$branchTrack = 'Azure-DevOps'}
+   if ($branchSource -match 'TEST-') {$branchTrack = 'Test'}
+   if ($branchSource -match 'FEATURE-') {$branchTrack = 'Feature'}
+   if ($branchSource -match 'RELAEASE-') {$branchTrack = 'Release'}
+   if ($branchSource -match 'ARCHITECTURE-' {$branchTrack = 'Architecture'}
+   if ($branchSource -match 'DEVELOPMENT' {$branchTrack = 'Development'}
+
+   Write-Host "##vso[task.setvariable variable=COCON_BRANCH_TRACK;]$branchTrack"
+
+  displayName: 'Set The Branch Track'
+

@@ -1,0 +1,23 @@
+steps:
+- powershell: |
+   Write-Host "This Is A Relase Build"
+  displayName: 'Test Build Branch - Contains Release'
+  condition: contains(variables['Build.SourceBranchName'], 'Release')
+
+- powershell: |
+   Write-Host "This Is A Non-Release Build"
+  displayName: 'Test Build Branch - Not Contains Release'
+  condition: not(contains(variables['Build.SourceBranchName'], 'Release'))
+
+- powershell: |
+   Write-Host "Do This If It Is For Multiple Branches"
+  displayName: 'Test Build Branch - Contains Multiple Branches'
+  condition: | 
+    or 
+    (
+      contains(variables['Build.SourceBranchName'], 'Feature'),
+      contains(variables['Build.SourceBranchName'], 'Release'),
+      contains(variables['Build.SourceBranchName'], 'Development'),
+      contains(variables['Build.SourceBranchName'], 'master'),
+      contains(variables['Build.SourceBranchName'], 'Azure-DevOps')
+    )

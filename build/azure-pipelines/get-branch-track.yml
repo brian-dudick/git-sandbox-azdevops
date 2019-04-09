@@ -1,0 +1,7 @@
+steps:
+- powershell: |
+
+   Write-Host "COCON_BRANCH_TRACK: $($env:COCON_BRANCH_TRACK)"
+
+   #Get-ChildItem Env:
+  displayName: 'Get The Branch Track'
