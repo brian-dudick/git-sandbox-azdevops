@@ -3,10 +3,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-  paths:
-    exclude:
-    - README.md
-    - /docs/*
 pr:
   branches:
     include:
